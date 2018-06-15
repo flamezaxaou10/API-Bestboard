@@ -1,0 +1,6 @@
+API
+
+GET
+POST
+PUT
+DELETE
