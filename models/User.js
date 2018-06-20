@@ -1,7 +1,8 @@
 var mongoose = require('mongoose')
-var Userchema = new mongoose.Schema({
-  user: String,
-  pass: String,
-  status: String
+var Userschema = new mongoose.Schema({
+  user: { type: String, required: true },
+  pass: { type: String, required: true },
+  status: { type: String, default: 'Member' } ,
+  timeStamp: { type: Date, default: Date.now }
 })
-module.exports = mongoose.model('user', Userchema)
+module.exports = mongoose.model('user', Userschema)

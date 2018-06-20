@@ -15,28 +15,29 @@ router.get('/', (req, res, next) => {
 
 // Get Single user by ID
 router.get('/:id', (req, res, next) => {
-  user.findOne(req.params.id, function (err, user) {
+  user.findById(req.params.id, function (err, user) {
     if (err) return next(err)
     res.json(user)
     res.status(200)
   })
 })
 
-
+// Get Single user by USER
+router.get('/user/:user', (req, res, next) => {
+  user.findOne({user:req.params.user}, function (err, user) {
+    if (err) return next(err)
+    res.json(user)
+    res.status(200)
+  })
+})
 
 // Insert User
 router.post('/', (req, res, next) => {
-  if (typeof req.body.user !== 'string' || typeof req.body.pass !== 'string') {
-    console.log(req.body)
-    res.send('Not Found Key:user or pass')
-    res.status(404).end()
-  } else {
-    user.create(req.body, function (err, user) {
-      if (err) return next(err)
-      res.json(user)
-      res.status(201)
-    })
-  }
+  user.create(req.body, function (err, user) {
+    if (err) return next(err)
+    res.json(user)
+    res.status(201)
+  })
 })
 
 // UPDATE User
@@ -64,6 +65,36 @@ router.delete('/user/:user', function(req, res, next) {
     res.json(user)
   })
   res.status(200)
+})
+
+// LOGIN
+router.post("/login", function(req, res) {
+  if(req.body.name && req.body.password){
+    var user = req.body.user
+    var pass = req.body.pass
+  }
+  // usually this would be a database call:
+  var user = user[_.findIndex(user, {user: user})]
+  if( ! user ){
+    res.status(401).json({message:"no such user found"})
+  }
+
+  if(user.pass === req.body.pass) {
+    // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
+    var payload = {
+      id: user.id,
+      name: user.name,
+      status: user.status
+    }
+    var token = jwt.sign(payload, jwtOptions.secretOrKey, jwtOptions.jsonWebTokenOptions)
+    res.json({message: "ok", token: token})
+  } else {
+    res.status(401).json({message:"passwords did not match"})
+  }
+})
+
+router.get("/secret", passport.authenticate('jwt', { session: false }), function(req, res){
+  res.json({message: "Success! You can not see this without a token"})
 })
 
 module.exports = router

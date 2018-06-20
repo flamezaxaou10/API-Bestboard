@@ -4,3 +4,7 @@ GET
 POST
 PUT
 DELETE
+
+
+ต้องง Login ก่อน แล้วเอา User Password ไปเช็คคว่าตรงมั้ย
+แล้ว Gen Token เพื่อไปใช้ใน API
