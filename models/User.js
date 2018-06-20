@@ -5,4 +5,5 @@ var Userschema = new mongoose.Schema({
   status: { type: String, default: 'Member' } ,
   timeStamp: { type: Date, default: Date.now }
 })
+
 module.exports = mongoose.model('user', Userschema)

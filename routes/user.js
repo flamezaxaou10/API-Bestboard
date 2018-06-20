@@ -3,14 +3,45 @@ var router = express.Router()
 var mongoose = require('mongoose')
 var user = require('../models/User.js')
 
-// Get All users
-router.get('/', (req, res, next) => {
-  user.find(function (err, user) {
-    if (err) return next(err)
-    res.json(user)
-    res.status(200)
-  })
+const jwt = require('jsonwebtoken')
 
+// FORMAT OF TOKEN
+// Authorization: Bearer <access_token>
+
+// Verify Token
+function verifyToken(req, res, next) {
+  // Get auth header value
+  const bearerHeader = req.headers['authorization'];
+  // Check if bearer is undefined
+  if(typeof bearerHeader !== 'undefined') {
+    // Split at the space
+    const bearer = bearerHeader.split(' ');
+    // Get token from array
+    const bearerToken = bearer[1];
+    // Set the token
+    req.token = bearerToken;
+    // Next middleware
+    next();
+  } else {
+    // Forbidden
+    res.sendStatus(403);
+  }
+
+}
+
+// Get All users
+router.get('/', verifyToken, (req, res, next) => {
+  jwt.verify(req.token, 'secretkey', (err, authData) => {
+    if (err) {
+      res.sendStatus(403)
+    } else {
+      user.find(function (err, user) {
+        if (err) return next(err)
+        res.json(user)
+        res.status(200)
+      })
+    }
+  })
 })
 
 // Get Single user by ID
@@ -65,36 +96,6 @@ router.delete('/user/:user', function(req, res, next) {
     res.json(user)
   })
   res.status(200)
-})
-
-// LOGIN
-router.post("/login", function(req, res) {
-  if(req.body.name && req.body.password){
-    var user = req.body.user
-    var pass = req.body.pass
-  }
-  // usually this would be a database call:
-  var user = user[_.findIndex(user, {user: user})]
-  if( ! user ){
-    res.status(401).json({message:"no such user found"})
-  }
-
-  if(user.pass === req.body.pass) {
-    // from now on we'll identify the user by the id and the id is the only personalized value that goes into our token
-    var payload = {
-      id: user.id,
-      name: user.name,
-      status: user.status
-    }
-    var token = jwt.sign(payload, jwtOptions.secretOrKey, jwtOptions.jsonWebTokenOptions)
-    res.json({message: "ok", token: token})
-  } else {
-    res.status(401).json({message:"passwords did not match"})
-  }
-})
-
-router.get("/secret", passport.authenticate('jwt', { session: false }), function(req, res){
-  res.json({message: "Success! You can not see this without a token"})
 })
 
 module.exports = router
