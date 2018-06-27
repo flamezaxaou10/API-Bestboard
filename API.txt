@@ -14,4 +14,7 @@ DELETE
 data FORMAT
 
 name:
+author:
+
+energy:
 status:

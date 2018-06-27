@@ -10,8 +10,10 @@ const logger = require('morgan')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 
-var user = require('./routes/user')
 var users = require('./models/User.js')
+
+var user = require('./routes/user')
+var exhtml = require('./routes/html')
 
 mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
@@ -25,6 +27,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // App Start
 app.use('/users', user)
+app.use('/html', exhtml)
 
 app.listen(port, () => {
   console.log('Start server at port ' + port + ' >> localhost:' + port)
