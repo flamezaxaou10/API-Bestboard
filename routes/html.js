@@ -1,7 +1,6 @@
 var express = require('express')
 var router = express.Router()
 var mongoose = require('mongoose')
-var fs = require('fs')
 
 const jwt = require('jsonwebtoken')
 
@@ -33,10 +32,7 @@ router.get('/', verifyToken, (req, res, next) => {
     if (err) {
       res.sendStatus(403)
     } else {
-      fs.readFile('../pages/test.html', function (err, data) {
-        res.writeHead(200, { 'Content-Type': 'text/html' })
-        res.write(data)
-      })
+      res.sendfile('./pages/test.html')
     }
   })
 })

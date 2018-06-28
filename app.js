@@ -20,6 +20,7 @@ mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseL
   .then(() => console.log('MongoDB Connection Succesful'))
   .catch((err) => console.error(err))
 
+app.set('views', './pages')
 app.set('view engine', 'html')
 app.use(logger('dev'))
 app.use(bodyParser.json())
