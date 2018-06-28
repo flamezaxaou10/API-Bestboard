@@ -1,6 +1,7 @@
 var express = require('express')
 var router = express.Router()
 var mongoose = require('mongoose')
+var fs = require('fs')
 
 const jwt = require('jsonwebtoken')
 
@@ -12,7 +13,7 @@ function verifyToken(req, res, next) {
   // Get auth header value
   const bearerHeader = req.headers['authorization'];
   // Check if bearer is undefined
-  if(typeof bearerHeader !== 'undefined') {
+  if (typeof bearerHeader !== 'undefined') {
     // Split at the space
     const bearer = bearerHeader.split(' ');
     // Get token from array
@@ -27,18 +28,17 @@ function verifyToken(req, res, next) {
   }
 }
 
-
 router.get('/', verifyToken, (req, res, next) => {
-    jwt.verify(req.token, 'secretkey', (err, authData) => {
-      if (err) {
-        res.sendStatus(403)
-      } else {
-        var testhtml = require('../pages/test.html')
-        console.log(testhtml)  
-        
-      }
-    })
+  jwt.verify(req.token, 'secretkey', (err, authData) => {
+    if (err) {
+      res.sendStatus(403)
+    } else {
+      fs.readFile('../pages/test.html', function (err, data) {
+        res.writeHead(200, { 'Content-Type': 'text/html' })
+        res.write(data)
+      })
+    }
   })
-
+})
 
 module.exports = router
