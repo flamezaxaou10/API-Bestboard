@@ -8,13 +8,23 @@ DELETE
 
 ต้องง Login ก่อน แล้วเอา User Password ไปเช็คคว่าตรงมั้ย
 แล้ว Gen Token เพื่อไปใช้ใน API
+Example Sensor
+DHT22  วัดอุณหภูมิความชื้น 
+Ultrasonic Sensor วัดระยะ
+
 
 
 
 data FORMAT
 
+id:
 name:
 author:
-
+location:
 energy:
 status:
+statusUpdateTime:
+connectionState:
+data: {
+	....
+}
