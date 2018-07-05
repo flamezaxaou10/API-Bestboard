@@ -10,9 +10,9 @@ DELETE
 แล้ว Gen Token เพื่อไปใช้ใน API
 Example Sensor
 DHT22  วัดอุณหภูมิความชื้น 
-Ultrasonic Sensor วัดระยะ
-
-
+///// Ultrasonic Sensor US-100 วัดระยะ  
+///// Motion SensorHC-SR501 ตรวจจับความเคลื่อนไหว 
+Gas Sensor MQ-135  วัด CO2
 
 
 data FORMAT
@@ -27,4 +27,7 @@ statusUpdateTime:
 connectionState:
 data: {
 	....
+}
+metadata: {
+	
 }
