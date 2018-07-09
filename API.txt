@@ -9,25 +9,75 @@ DELETE
 ต้องง Login ก่อน แล้วเอา User Password ไปเช็คคว่าตรงมั้ย
 แล้ว Gen Token เพื่อไปใช้ใน API
 Example Sensor
-DHT22  วัดอุณหภูมิความชื้น 
+DHT22  วัดอุณหภูมิความชื้น     https://github.com/adafruit/DHT-sensor-library
 ///// Ultrasonic Sensor US-100 วัดระยะ  
 ///// Motion SensorHC-SR501 ตรวจจับความเคลื่อนไหว 
-Gas Sensor MQ-135  วัด CO2
+Gas Sensor MQ7  วัด CO  https://github.com/swatish17/MQ7-Library
+AS10043 วัดชีพจร    https://github.com/WorldFamousElectronics/PulseSensorPlayground
 
 
 data FORMAT
 
-id:
-name:
-author:
-location:
-energy:
-status:
-statusUpdateTime:
-connectionState:
-data: {
-	....
+DHT22: {
+	id: '',
+	data: {
+		temp: '',
+		tempCeil: '',
+		tempFloor: '',
+		tempAverage: (tempCeil + tempFloor) / 2,
+ 		humid: '',
+		humidCeil: '',
+		humidFloor: '',
+		humidAverage: (humidCeil + humidFloor) / 2,
+		status: '',
+		statusUpdateTime: '',
+ 		topic: ''
+	},
+	metadata: {
+ 		type: 'Sensor',
+ 		title: 'DHT22',
+ 		slug: ['Tempreture', 'Humidity'],
+		author: 'User_ID',
+		location: '',
+		description: '',
+		created: datetime.now()
+	}
 }
-metadata: {
-	
+
+MQ-7: {
+	id: '',
+	data: {
+		ppm: '',
+    ratio: '',
+    resistance: '',
+		status: '',
+		statusUpdateTime: '',
+ 		topic: ''
+	},
+	metadata: {
+ 		type: '',
+ 		title: '',
+ 		slug: '',
+		author: '',
+		location: '',
+		description: '',
+		created: datetime.now()
+	}
 }
+
+AS10043: {
+  id: '',
+  data: {
+
+  },
+  metadata: {
+    type: '',
+    title: '',
+    slug: '',
+    author: '',
+    location: '',
+    description: '',
+    created: datetime.now()
+  }
+}
+

@@ -1,0 +1,71 @@
+{
+	"sensorId": "",
+	"attributes": {
+    "temperature": {
+      "celsius": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "(valueCeil + valueFloor) / 2",
+        "unit": "Celsius"
+      },
+      "fahrenheit": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "(valueCeil + valueFloor) / 2",
+        "unit": "Fahrenheit"
+      }
+    },
+    "humidity": {
+      "value": "",
+      "valueCeil": "",
+      "valueFloor": "",
+      "valueAverage": "(valueCeil + valueFloor) / 2",
+      "unit": "Percent"
+    },
+    "heatIndex": {
+      "celsius": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "(valueCeil + valueFloor) / 2",
+        "unit": "Celsius"
+      },
+      "fahrenheit": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "(valueCeil + valueFloor) / 2",
+        "unit": "Fahrenheit"
+      }
+    },
+		"status": [
+      "enabled",
+      "disabled"
+    ],
+    "statusUpdateTime": "",
+    "public": true
+	},
+	"metadata": {
+ 		"type": "sensor",
+     "title": "Thermometer and Moisture Meter",
+     "model": "DHT22",
+     "language": "en-US",
+     "tag": [
+      "Tempreture",
+      "Humidity",
+      "HeatIndex"
+    ],
+    "comment": "",
+		"author": "userId",
+		"location": {
+      "building": "",
+      "floor": "",
+      "room": ""
+    },
+		"description": "",
+    "created": "",
+    "version": "0.1"
+	}
+}

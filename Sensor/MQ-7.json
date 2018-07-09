@@ -1,0 +1,56 @@
+{
+  "sensorId": "",
+  "attributes": {
+    "CO": {
+      "ppm": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "(valueCeil + valueFloor) / 2",
+        "unit": "Parts Per Million"
+      }
+    },
+    "ratio": {
+      "value": "",
+      "valueCeil": "",
+      "valueFloor": "",
+      "valueAverage": "(valueCeil + valueFloor) / 2",
+      "unit": ""
+    },
+    "resistance": {
+      "value": "",
+      "valueCeil": "",
+      "valueFloor": "",
+      "valueAverage": "(valueCeil + valueFloor) / 2",
+      "unit": ""
+    },
+    "status": [
+      "enabled",
+      "disabled"
+    ],
+    "statusUpdateTime": "",
+    "public": true
+  },
+  "metadata": {
+    "type": "sensor",
+    "title": "Carbon Monoxide Detector",
+    "model": "MQ-7",
+    "language": "en-US",
+    "tag": [
+     "Carbon",
+     "Monoxide",
+     "Carbon Monoxide",
+     "CO"
+   ],
+   "comment": "",
+   "author": "userId",
+   "location": {
+     "building": "",
+     "floor": "",
+     "room": ""
+   },
+   "description": "",
+   "created": "",
+   "version": "0.1"
+  }
+}
