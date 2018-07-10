@@ -14,6 +14,7 @@ var users = require('./models/User.js')
 
 var user = require('./routes/user')
 var exhtml = require('./routes/html')
+var dht22 = require('./routes/dht')
 
 mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
@@ -28,6 +29,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 // App Start
 app.use('/users', user)
 app.use('/html', exhtml)
+app.use('/dht', dht22)
 
 app.listen(port, () => {
   console.log('Start server at port ' + port + ' >> localhost:' + port)
