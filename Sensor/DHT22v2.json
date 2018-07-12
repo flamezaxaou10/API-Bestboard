@@ -1,0 +1,102 @@
+{
+  "sensorId": "",
+  "properties": {
+    "temperature": {
+      "celsius": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "",
+        "unit": "Celsius"
+      },
+      "fahrenheit": {
+        "value": "",
+        "valueCeil": "",
+        "valueFloor": "",
+        "valueAverage": "",
+        "unit": "Fahrenheit"
+      }
+    },
+    "humidity": {
+      "value": "",
+      "valueCeil": "",
+      "valueFloor": "",
+      "valueAverage": "",
+      "unit": "Percent"
+    }
+  },
+  "status": "enabled",
+  "createUpdateInfo": {
+    "createUser": "userId",
+    "createDate": "DateTime",
+    "updateUser": "user ที่อัพดกทล่าสุด",
+    "updateDate": "เวลาที่อัพเดทล่าสุด"
+  },
+  "meta": {
+    "name": "Thermometer and Moisture Meter",
+    "description": "Name of Sensor Description",
+    "language": "en-US",
+    "version": "1.0"
+  },
+  "container": {
+    "type": "System, Subsystem",
+    "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
+    "sensorInfo": [
+      {
+        "type": "Temperature",
+        "make": "Corp.",
+        "model": "DHT22",
+        "comment": ""
+      },
+      {
+        "type": "Humidity",
+        "make": "Corp.",
+        "model": "DHT22",
+        "comment": ""
+      }
+    ]
+  },
+  "catagories": [
+    {
+      "name": "Information",
+      "id": 1008
+    },
+    {
+      "name": "Utilities",
+      "id": 1003
+    }
+  ],
+  "tags": [
+    {
+      "name": "Temperature",
+      "id": 0
+    },
+    {
+      "name": "Humidity",
+      "id": 0
+    },
+    {
+      "name": "Heat Index",
+      "id": 0
+    }
+  ],
+  "location": {
+    "type": "Fixed, Moving, Other",
+    "address": "",
+    "city": "",
+    "state": "",
+    "county": "",
+    "country": "",
+    "postalCode": "",
+    "freeText": "example building, floor, room",
+    "gps": {
+      "latitude": "",
+      "longitude": ""
+    },
+    "comment": ""
+  },
+  "deliveryInfo": {
+    "type": "API, Upload, MQTT, Other",
+    "comment": ""
+  }
+}

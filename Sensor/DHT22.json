@@ -45,10 +45,11 @@
       "disabled"
     ],
     "statusUpdateTime": "",
+    "statusReason" : "",
     "public": true
 	},
 	"metadata": {
- 		"type": "sensor",
+ 		"type": "Air Quality",
      "title": "Thermometer and Moisture Meter",
      "model": "DHT22",
      "language": "en-US",

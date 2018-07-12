@@ -14,7 +14,12 @@ DHT22  วัดอุณหภูมิความชื้น     https://git
 ///// Motion SensorHC-SR501 ตรวจจับความเคลื่อนไหว 
 Gas Sensor MQ7  วัด CO  https://github.com/swatish17/MQ7-Library
 AS10043 วัดชีพจร    https://github.com/WorldFamousElectronics/PulseSensorPlayground
+GYRO-61
 
+ดูเรื่อง limitedtion ของ metadata
+ดูว่าDatabase ที่เหมาะสม กับการเก็บข้อมูลเยอะๆ และตลอดเวลา 
+timbebase database
+ออกแบบ ให้มันคลอส กันในตอนดึกข้อมูล เช่นต้องการดึง Temp ก็จะมี Temp ของทุก things
 
 data FORMAT
 

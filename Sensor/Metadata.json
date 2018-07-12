@@ -1,0 +1,54 @@
+{
+  "createUpdateInfo": {
+    "createUser": "userId",
+    "createDate": "DateTime",
+    "updateUser": "",
+    "updateDate": ""
+  },
+  "meta": {
+    "name": "Name Sensor",
+    "description": "Name of Sensor Description",
+    "version": "1.0"
+  },
+  "sensorInfo": {
+    "type": "Type Sensor example. Temperature",
+    "make": "Corp.",
+    "model": "model Sensor example. DHT22",
+    "comment": ""
+  },
+  "catagories": [
+    {
+      "name": "Information",
+      "id": 1008
+    },
+    {
+      "name": "Utilities",
+      "id": 1003
+    }
+  ],
+  "tags": [
+    {
+      "name": "Sensor Data",
+      "id": 0
+    }
+  ],
+  "location": {
+    "type": "Fixed, Moving, Other",
+    "address": "",
+    "city": "",
+    "state": "",
+    "county": "",
+    "country": "",
+    "postalCode": "",
+    "freeText": "example building, floor, room",
+    "gps": {
+      "latitude": "",
+      "longitude": ""
+    },
+    "comment": ""
+  },
+  "deliveryInfo": {
+    "type": "API, Upload, MQTT, Other",
+    "comment": ""
+  }
+}
