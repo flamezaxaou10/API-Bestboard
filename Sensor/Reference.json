@@ -1,0 +1,93 @@
+{
+    "sensorId": "", // Google,Shadow Device
+    "properties": { // Microsoft
+      "temperature": {
+        "celsius": {
+          "value": "", // Google
+          "unit": "Celsius"
+        },
+        "fahrenheit": {
+          "value": "", // Google
+          "unit": "Fahrenheit"
+        }
+      },
+      "humidity": {
+        "value": "", // Google
+        "unit": "Percent"
+      }
+    },
+    "status": "enabled", // Microsoft
+    "createUpdateInfo": {
+      "createUser": "userId",
+      "createTime": "DateTime", // Microsoft
+      "updateUser": "user ที่อัพเดทล่าสุด",
+      "updateTime": "เวลาที่อัพเดทล่าสุด" // Microsoft
+    },
+    "meta": { // Shadow Device
+      "name": "Thermometer and Moisture Meter", // Samsung
+      "description": "Name of Sensor Description",
+      "language": "en-US",
+      "version": "1.0" // Microsoft,Shadow Device
+    },
+    "container": {
+      "type": "System, Subsystem", 
+      "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
+      "sensorInfo": [ // Samsung
+        {
+          "type": "Temperature",
+          "make": "Corp.",
+          "model": "DHT22",
+          "comment": ""
+        },
+        {
+          "type": "Humidity",
+          "make": "Corp.",
+          "model": "DHT22",
+          "comment": ""
+        }
+      ]
+    },
+    "catagories": [
+      {
+        "name": "Information",
+        "id": 1008
+      },
+      {
+        "name": "Utilities",
+        "id": 1003
+      }
+    ],
+    "tags": [ // Microsoft
+      {
+        "name": "Temperature",
+        "id": 0
+      },
+      {
+        "name": "Humidity",
+        "id": 0
+      },
+      {
+        "name": "Heat Index",
+        "id": 0
+      }
+    ],
+    "location": { // Microsoft, Google
+      "type": "Fixed, Moving, Other",
+      "address": "",
+      "city": "",
+      "state": "",
+      "county": "",
+      "country": "",
+      "postalCode": "",
+      "freeText": "example building, floor, room",
+      "gps": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "comment": ""
+    },
+    "deliveryInfo": {
+      "type": "API, Upload, MQTT, Other",
+      "comment": ""
+    }
+  }

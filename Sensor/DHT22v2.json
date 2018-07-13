@@ -29,7 +29,7 @@
   "createUpdateInfo": {
     "createUser": "userId",
     "createDate": "DateTime",
-    "updateUser": "user ที่อัพดกทล่าสุด",
+    "updateUser": "user ที่อัพเดทล่าสุด",
     "updateDate": "เวลาที่อัพเดทล่าสุด"
   },
   "meta": {
