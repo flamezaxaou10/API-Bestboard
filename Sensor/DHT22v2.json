@@ -4,16 +4,10 @@
     "temperature": {
       "celsius": {
         "value": "",
-        "valueCeil": "",
-        "valueFloor": "",
-        "valueAverage": "",
         "unit": "Celsius"
       },
       "fahrenheit": {
-        "value": "",
-        "valueCeil": "",
-        "valueFloor": "",
-        "valueAverage": "",
+        "value": "", 
         "unit": "Fahrenheit"
       }
     },
@@ -28,9 +22,9 @@
   "status": "enabled",
   "createUpdateInfo": {
     "createUser": "userId",
-    "createDate": "DateTime",
+    "createTime": "DateTime",
     "updateUser": "user ที่อัพเดทล่าสุด",
-    "updateDate": "เวลาที่อัพเดทล่าสุด"
+    "updateTime": "เวลาที่อัพเดทล่าสุด"
   },
   "meta": {
     "name": "Thermometer and Moisture Meter",
