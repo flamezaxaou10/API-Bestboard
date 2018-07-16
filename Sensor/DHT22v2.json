@@ -13,13 +13,19 @@
     },
     "humidity": {
       "value": "",
-      "valueCeil": "",
-      "valueFloor": "",
-      "valueAverage": "",
       "unit": "Percent"
-    }
+    },
+    "help": [
+      { 
+        "command": "temperature" 
+      },
+      { 
+        "command": "humidity" 
+      }
+    ]
   },
   "status": "enabled",
+  "updateStatusTime": "",
   "createUpdateInfo": {
     "createUser": "userId",
     "createTime": "DateTime",
@@ -50,7 +56,7 @@
       }
     ]
   },
-  "catagories": [
+  "categories": [
     {
       "name": "Information",
       "id": 1008

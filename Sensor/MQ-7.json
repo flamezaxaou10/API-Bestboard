@@ -1,53 +1,48 @@
 {
-    "sensorId": "", // Google,Shadow Device
-    "properties": { // Microsoft
-      "temperature": {
-        "celsius": {
-          "value": "", // Google
-          "minValue": "", // W3C
-          "maxValue": "", // W3C
-          "unit": "Celsius" // W3C
-        },
-        "fahrenheit": {
-          "value": "", // Google
-          "minValue": "", // W3C
-          "maxValue": "", // W3C
-          "unit": "Fahrenheit" // W3C
-        }
+    "sensorId": "",
+    "properties": {
+      "ppm": {
+        "value": "",
+        "unit": "PPM"
       },
-      "humidity": {
-        "value": "", // Google
-        "minValue": "", // W3C
-        "maxValue": "", // W3C
-        "unit": "Percent" // W3C
+      "ratio": {
+        "value": "",
+        "unit": ""
+      },
+      "resistance": {
+        "value": "",
+        "unit": ""
       },
       "help": [
         { 
-          "command": "temperature" 
+          "command": "ppm" 
         },
         { 
-          "command": "humidity" 
+          "command": "ratio" 
+        },
+        { 
+          "command": "resistance" 
         }
       ]
     },
-    "status": "enabled", // Microsoft
+    "status": "enabled",
     "updateStatusTime": "",
     "createUpdateInfo": {
       "createUser": "userId",
-      "createTime": "DateTime", // Microsoft
+      "createTime": "DateTime",
       "updateUser": "user ที่อัพเดทล่าสุด",
-      "updateTime": "เวลาที่อัพเดทล่าสุด" // Microsoft
+      "updateTime": "เวลาที่อัพเดทล่าสุด"
     },
-    "meta": { // Shadow Device
-      "name": "Thermometer and Moisture Meter", // Samsung
-      "description": "Name of Sensor Description",
+    "meta": {
+      "name": "Cabon Monoxide",
+      "description": "",
       "language": "en-US",
-      "version": "1.0" // Microsoft,Shadow Device
+      "version": "1.0"
     },
     "container": {
-      "type": "System, Subsystem", 
+      "type": "System, Subsystem",
       "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
-      "sensorInfo": [ // Samsung
+      "sensorInfo": [
         {
           "type": "Temperature",
           "make": "Corp.",
@@ -72,7 +67,7 @@
         "id": 1003
       }
     ],
-    "tags": [ // Microsoft
+    "tags": [
       {
         "name": "Temperature",
         "id": 0
@@ -86,7 +81,7 @@
         "id": 0
       }
     ],
-    "location": { // Microsoft, Google
+    "location": {
       "type": "Fixed, Moving, Other",
       "address": "",
       "city": "",

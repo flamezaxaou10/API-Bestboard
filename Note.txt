@@ -1,0 +1,34 @@
+MongoDB ทำให้ง่ายขึ้น
+
+ทำไม่ได้
+MongoDB ช่วยให้คุณสร้างแอปพลิเคชันที่คุณไม่เคยสร้างมาก่อน 
+สามารถจัดการข้อมูลของโครงสร้างใด ๆ 
+ได้ไม่ว่าจะมีการเปลี่ยนแปลงบ่อยแค่ไหน 
+คุณสามารถจัดส่งฟังก์ชันการทำงานใหม่ได้โดยไม่ต้องออกแบบใหม่ฐานข้อมูลของคุณ
+
+ขนาดใหญ่
+MongoDB สร้างขึ้นเพื่อให้มีขนาดใหญ่ขึ้นกับฮาร์ดแวร์สินค้าโภคภัณฑ์ในศูนย์ข้อมูลของคุณหรือในระบบคลาวด์ 
+ให้บริการผู้ใช้นับล้านรายและนับพันล้านตัวโดยไม่ต้องใช้ฮาร์ดแวร์ที่ซับซ้อนหรือซอฟต์แวร์พิเศษ 
+เมื่อข้อมูลเซนเซอร์เติบโตขึ้นเรื่อย ๆ MongoDB
+
+สัญญาณและเสียงรบกวน
+MongoDB สามารถวิเคราะห์ข้อมูลของโครงสร้างใดก็ได้ 
+สามารถทำได้โดยตรงภายในฐานข้อมูลทำให้คุณได้ผลตามเวลาจริงและไม่มีการโหลดคลังข้อมูลที่มีราคาแพง
+
+// ENG 
+MongoDB Makes it Easy
+
+Do the Impossible. 
+MongoDB lets you build apps you could never build before. 
+It can manage data of any structure, no matter how often it changes. You can ship new functionality without 
+redesigning your database.
+
+Scale Big. 
+MongoDB is built to scale out on commodity hardware, 
+in your data center or in the cloud. Serve millions of users and billions of sensors without complex hardware or 
+extra software. As sensor data grows, so does MongoDB.
+
+Signal vs. Noise. 
+MongoDB can analyze data of any structure. 
+It can do so directly within the database, giving you results in real time, 
+and without expensive data warehouse loads.

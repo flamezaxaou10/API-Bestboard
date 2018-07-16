@@ -7,6 +7,7 @@
     "updateDate": ""
   },
   "status": "enabled",
+  "updateStatusTime": "",
   "meta": {
     "name": "Name is Thing",
     "description": "Description",
@@ -26,7 +27,7 @@
       }
     ]
   },
-  "catagories": [
+  "categories": [
     {
       "name": "Information",
       "id": 1008
