@@ -12,8 +12,45 @@
 </head>
 
 <body>
-  <h1 class="title">Test HTML</h1>
+  <h1 class="title">ข้อมูลผู้ใช้</h1>
+  กรอกอายุ : <input type="number" id="age">
+  <button>ยืนยัน</button>
 
+  <table>
+    <tr>
+      <th col="3">MAX HEART RATE ของอายุ <span id="mxage"></span> : <span id="maxhr"></span></th>
+    </tr>
+    <tr>
+      <th>ZONE</th>
+      <th>Intensity x Max HR</th>
+      <th>อัตราการเต้นของหัวใจ(ครั้ง/นาที)</th>
+    </tr>
+    <tr>
+      <td>ZONE 1</td>
+      <td>50-60% x <span id="maxhr"></span></td>
+      <td><span id="z1min"></span> - <span id="z1max"></span></td>
+    </tr>
+    <tr>
+      <td>ZONE 2</td>
+      <td>60-70% x <span id="maxhr"></span></td>
+      <td><span id="z2min"></span> - <span id="z2max"></span></td>
+    </tr>
+    <tr>
+      <td>ZONE 3</td>
+      <td>70-80% x <span id="maxhr"></span></td>
+      <td><span id="z3min"></span> - <span id="z3max"></span></td>
+    </tr>
+    <tr>
+      <td>ZONE 4</td>
+      <td>80-90% x <span id="maxhr"></span></td>
+      <td><span id="z4min"></span> - <span id="z4max"></span></td>
+    </tr>
+    <tr>
+      <td>ZONE 5</td>
+      <td>90-100% x <span id="maxhr"></span></td>
+      <td><span id="z5min"></span> - <span id="z5max"></span></td>
+    </tr>
+  </table>
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

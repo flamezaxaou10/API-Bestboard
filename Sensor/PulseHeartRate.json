@@ -1,0 +1,89 @@
+{
+  "sensorId": "",
+  "properties": {
+    "bpm": {
+      "value": "",
+      "unit": "BPM"
+    },
+    "ibi": {
+      "value": "",
+      "unit": ""
+    },
+    "help": [
+      {
+        "command": "bpm"
+      },
+      {
+        "command": "ibi"
+      }
+    ]
+  },
+  "status": "enabled",
+  "updateStatusTime": "",
+  "metadata": {
+    "createUpdateInfo": {
+      "createUser": "userId",
+      "createTime": "DateTime",
+      "updateUser": "user ที่อัพเดทล่าสุด",
+      "updateTime": "เวลาที่อัพเดทล่าสุด"
+    },
+    "meta": {
+      "name": "Pulse Heart Rate Sensor",
+      "description": "",
+      "language": "en-US",
+      "version": "1.0"
+    },
+    "container": {
+      "type": "System, Subsystem",
+      "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
+      "sensorInfo": [
+        {
+          "type": "Temperature",
+          "make": "",
+          "model": "Pulse Sensor",
+          "comment": ""
+        }
+      ]
+    },
+    "categories": [
+      {
+        "name": "",
+        "id": ""
+      }
+    ],
+    "tags": [
+      {
+        "name": "Pulse",
+        "id": 0
+      },
+      {
+        "name": "Heart Rate",
+        "id": 0
+      },
+      {
+        "name": "BPM",
+        "id": 0
+      }
+    ],
+    "location": {
+      "type": "Fixed, Moving, Other",
+      "address": "",
+      "city": "",
+      "state": "",
+      "county": "",
+      "country": "",
+      "postalCode": "",
+      "freeText": "example building, floor, room",
+      "gps": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "comment": ""
+    },
+    "deliveryInfo": {
+      "type": "API, Upload, MQTT, Other",
+      "comment": ""
+    }
+  }
+}
+

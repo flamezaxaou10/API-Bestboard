@@ -1,32 +1,33 @@
 {
-    "sensorId": "",
-    "properties": {
-      "ppm": {
-        "value": "",
-        "unit": "PPM"
-      },
-      "ratio": {
-        "value": "",
-        "unit": ""
-      },
-      "resistance": {
-        "value": "",
-        "unit": ""
-      },
-      "help": [
-        { 
-          "command": "ppm" 
-        },
-        { 
-          "command": "ratio" 
-        },
-        { 
-          "command": "resistance" 
-        }
-      ]
+  "sensorId": "",
+  "properties": {
+    "ppm": {
+      "value": "",
+      "unit": "PPM"
     },
-    "status": "enabled",
-    "updateStatusTime": "",
+    "ratio": {
+      "value": "",
+      "unit": ""
+    },
+    "resistance": {
+      "value": "",
+      "unit": ""
+    },
+    "help": [
+      {
+        "command": "ppm"
+      },
+      {
+        "command": "ratio"
+      },
+      {
+        "command": "resistance"
+      }
+    ]
+  },
+  "status": "enabled",
+  "updateStatusTime": "เวลาที่ส่งข้อมูลล่าสุด",
+  "metadata": {
     "createUpdateInfo": {
       "createUser": "userId",
       "createTime": "DateTime",
@@ -34,7 +35,7 @@
       "updateTime": "เวลาที่อัพเดทล่าสุด"
     },
     "meta": {
-      "name": "Cabon Monoxide",
+      "name": "Cabon Monoxide Sensor",
       "description": "",
       "language": "en-US",
       "version": "1.0"
@@ -44,40 +45,30 @@
       "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
       "sensorInfo": [
         {
-          "type": "Temperature",
+          "type": "Gases",
           "make": "Corp.",
-          "model": "DHT22",
-          "comment": ""
-        },
-        {
-          "type": "Humidity",
-          "make": "Corp.",
-          "model": "DHT22",
+          "model": "MQ-7",
           "comment": ""
         }
       ]
     },
     "categories": [
       {
-        "name": "Information",
-        "id": 1008
-      },
-      {
-        "name": "Utilities",
-        "id": 1003
+        "name": "",
+        "id": ""
       }
     ],
     "tags": [
       {
-        "name": "Temperature",
+        "name": "Carbon",
         "id": 0
       },
       {
-        "name": "Humidity",
+        "name": "Monoxide",
         "id": 0
       },
       {
-        "name": "Heat Index",
+        "name": "ppm",
         "id": 0
       }
     ],
@@ -101,3 +92,4 @@
       "comment": ""
     }
   }
+}

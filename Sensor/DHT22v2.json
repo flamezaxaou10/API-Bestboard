@@ -7,7 +7,7 @@
         "unit": "Celsius"
       },
       "fahrenheit": {
-        "value": "", 
+        "value": "",
         "unit": "Fahrenheit"
       }
     },
@@ -15,88 +15,94 @@
       "value": "",
       "unit": "Percent"
     },
+    "heatIndex": {
+      "value": "",
+      "unit": ""
+    },
     "help": [
-      { 
-        "command": "temperature" 
+      "temp",
+      {
+        "command": "temperature"
       },
-      { 
-        "command": "humidity" 
+      {
+        "command": "humidity"
+      },
+      {
+        "command": "heatIndex"
       }
     ]
   },
   "status": "enabled",
-  "updateStatusTime": "",
-  "createUpdateInfo": {
-    "createUser": "userId",
-    "createTime": "DateTime",
-    "updateUser": "user ที่อัพเดทล่าสุด",
-    "updateTime": "เวลาที่อัพเดทล่าสุด"
-  },
-  "meta": {
-    "name": "Thermometer and Moisture Meter",
-    "description": "Name of Sensor Description",
-    "language": "en-US",
-    "version": "1.0"
-  },
-  "container": {
-    "type": "System, Subsystem",
-    "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
-    "sensorInfo": [
+  "updateStatusTime": "เวลาที่ส่งข้อมูลล่าสุด",
+  "metadata": {
+    "createUpdateInfo": {
+      "createUser": "userId",
+      "createTime": "DateTime",
+      "updateUser": "user ที่อัพเดทล่าสุด",
+      "updateTime": "เวลาที่อัพเดทล่าสุด"
+    },
+    "meta": {
+      "name": "Thermometer and Moisture Meter",
+      "description": "Description ของ sensor",
+      "language": "en-US",
+      "version": "1.0"
+    },
+    "container": {
+      "type": "System, Subsystem",
+      "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
+      "sensorInfo": [
+        {
+          "type": "Temperature",
+          "make": "Corp.",
+          "model": "DHT22",
+          "comment": ""
+        },
+        {
+          "type": "Humidity",
+          "make": "Corp.",
+          "model": "DHT22",
+          "comment": ""
+        }
+      ]
+    },
+    "categories": [
       {
-        "type": "Temperature",
-        "make": "Corp.",
-        "model": "DHT22",
-        "comment": ""
+        "name": "",
+        "id": ""
+      }
+    ],
+    "tags": [
+      {
+        "name": "Temperature",
+        "id": 0
       },
       {
-        "type": "Humidity",
-        "make": "Corp.",
-        "model": "DHT22",
-        "comment": ""
+        "name": "Humidity",
+        "id": 0
+      },
+      {
+        "name": "Heat Index",
+        "id": 0
       }
-    ]
-  },
-  "categories": [
-    {
-      "name": "Information",
-      "id": 1008
+    ],
+    "location": {
+      "type": "Fixed, Moving, Other",
+      "address": "",
+      "city": "",
+      "state": "",
+      "county": "",
+      "country": "",
+      "postalCode": "",
+      "freeText": "example building, floor, room",
+      "gps": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "comment": ""
     },
-    {
-      "name": "Utilities",
-      "id": 1003
+    "deliveryInfo": {
+      "type": "API, Upload, MQTT, Other",
+      "comment": ""
     }
-  ],
-  "tags": [
-    {
-      "name": "Temperature",
-      "id": 0
-    },
-    {
-      "name": "Humidity",
-      "id": 0
-    },
-    {
-      "name": "Heat Index",
-      "id": 0
-    }
-  ],
-  "location": {
-    "type": "Fixed, Moving, Other",
-    "address": "",
-    "city": "",
-    "state": "",
-    "county": "",
-    "country": "",
-    "postalCode": "",
-    "freeText": "example building, floor, room",
-    "gps": {
-      "latitude": "",
-      "longitude": ""
-    },
-    "comment": ""
-  },
-  "deliveryInfo": {
-    "type": "API, Upload, MQTT, Other",
-    "comment": ""
   }
 }
