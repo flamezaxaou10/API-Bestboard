@@ -38,7 +38,7 @@
       "thingId": "จะบอกว่าเป็น Sensor ของ things ไหน",
       "sensorInfo": [
         {
-          "type": "Temperature",
+          "type": "Infrared",
           "make": "",
           "model": "Pulse Sensor",
           "comment": ""
