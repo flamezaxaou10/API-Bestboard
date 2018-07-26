@@ -1,6 +1,6 @@
 {
   "sensorId": "",
-  "properties": {
+  "disired": {
     "temperature": {
       "celsius": {
         "value": "",
@@ -19,8 +19,7 @@
       "value": "",
       "unit": ""
     },
-    "help": [
-      "temp",
+    "properties": [
       {
         "command": "temperature"
       },
@@ -53,13 +52,13 @@
       "sensorInfo": [
         {
           "type": "Temperature",
-          "make": "Corp.",
+          "make": "Aosong Electronics Co.,Ltd",
           "model": "DHT22",
           "comment": ""
         },
         {
           "type": "Humidity",
-          "make": "Corp.",
+          "make": "Aosong Electronics Co.,Ltd",
           "model": "DHT22",
           "comment": ""
         }

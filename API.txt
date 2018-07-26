@@ -21,68 +21,21 @@ GYRO-61
 timbebase database
 ออกแบบ ให้มันคลอส กันในตอนดึกข้อมูล เช่นต้องการดึง Temp ก็จะมี Temp ของทุก things
 
-data FORMAT
 
-DHT22: {
-	id: '',
-	data: {
-		temp: '',
-		tempCeil: '',
-		tempFloor: '',
-		tempAverage: (tempCeil + tempFloor) / 2,
- 		humid: '',
-		humidCeil: '',
-		humidFloor: '',
-		humidAverage: (humidCeil + humidFloor) / 2,
-		status: '',
-		statusUpdateTime: '',
- 		topic: ''
-	},
-	metadata: {
- 		type: 'Sensor',
- 		title: 'DHT22',
- 		slug: ['Tempreture', 'Humidity'],
-		author: 'User_ID',
-		location: '',
-		description: '',
-		created: datetime.now()
-	}
-}
+Reference
 
-MQ-7: {
-	id: '',
-	data: {
-		ppm: '',
-    ratio: '',
-    resistance: '',
-		status: '',
-		statusUpdateTime: '',
- 		topic: ''
-	},
-	metadata: {
- 		type: '',
- 		title: '',
- 		slug: '',
-		author: '',
-		location: '',
-		description: '',
-		created: datetime.now()
-	}
-}
+http://www.terbine.com/     PDF
+http://meewebfree.com/site/general-web-technic/378-what-is-mongodb-database
+https://www.ladict.asia/%e0%b8%9e%e0%b8%88%e0%b8%99%e0%b8%b2%e0%b8%99%e0%b8%b8%e0%b8%81%e0%b8%a3%e0%b8%a1/metadata-%e0%b8%84%e0%b8%b7%e0%b8%ad%e0%b8%ad%e0%b8%b0%e0%b9%84%e0%b8%a3/
 
-AS10043: {
-  id: '',
-  data: {
+DataSheet
+https://www.sparkfun.com/datasheets/Sensors/Temperature/DHT22.pdf
+https://www.sparkfun.com/datasheets/Sensors/Biometric/MQ-7.pdf
+https://www.sparkfun.com/products/11574
+https://www.thaieasyelec.com/downloads/ESEN247/GY521_USG.pdf
 
-  },
-  metadata: {
-    type: '',
-    title: '',
-    slug: '',
-    author: '',
-    location: '',
-    description: '',
-    created: datetime.now()
-  }
-}
+
+
+
+
 

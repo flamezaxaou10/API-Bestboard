@@ -1,6 +1,6 @@
 {
   "sensorId": "",
-  "properties": {
+  "disired": {
     "bpm": {
       "value": "",
       "unit": "BPM"
@@ -9,7 +9,7 @@
       "value": "",
       "unit": ""
     },
-    "help": [
+    "properties": [
       {
         "command": "bpm"
       },

@@ -1,6 +1,6 @@
 {
   "sensorId": "",
-  "properties": {
+  "disired": {
     "ppm": {
       "value": "",
       "unit": "PPM"
@@ -13,7 +13,7 @@
       "value": "",
       "unit": ""
     },
-    "help": [
+    "properties": [
       {
         "command": "ppm"
       },
