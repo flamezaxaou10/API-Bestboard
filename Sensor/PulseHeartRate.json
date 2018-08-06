@@ -1,6 +1,6 @@
 {
   "sensorId": "",
-  "disired": {
+  "desired": {
     "bpm": {
       "value": "",
       "unit": "BPM"

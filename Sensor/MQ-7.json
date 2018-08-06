@@ -1,6 +1,6 @@
 {
   "sensorId": "",
-  "disired": {
+  "desired": {
     "ppm": {
       "value": "",
       "unit": "PPM"
