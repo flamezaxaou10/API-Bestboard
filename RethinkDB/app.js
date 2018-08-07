@@ -21,7 +21,7 @@ r.connect(config.rethinkdb, function(err, conn){
     }).then(function (result) {
       console.log("Ready.. Starting express...")
       startExpress()
-      coon.close()      
+      conn.close()      
     }).error(function (err) {
       if (err) {
         console.log("not Connect Database")
@@ -30,7 +30,7 @@ r.connect(config.rethinkdb, function(err, conn){
       }
       console.log("Ready.. Starting express...")
       startExpress()
-      coon.close()  
+      conn.close()  
     })
   })
 })
