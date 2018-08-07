@@ -40,7 +40,7 @@ app.use(bodyParser())
 app.use(createConnection)
 
 app.get('/', (req, res, next) => {
-  r.table('test').orderBy({index: "createdAt"}).run(req._rdbConn).then(function(cursor) {
+  r.table('test').run(req._rdbConn).then(function(cursor) {
     return cursor.toArray()
   }).then(function(result) {
     res.send(JSON.stringify(result))
