@@ -6,6 +6,9 @@ var config = require(__dirname + '/config.js')
 
 var r = require('rethinkdb')
 
+app.use(bodyParser())
+app.use(createConnection)
+
 r.connect(config.rethinkdb, function(err, conn){
   if (err) {
     console.log("not Connect Database")
@@ -35,14 +38,15 @@ r.connect(config.rethinkdb, function(err, conn){
   })
 })
 
-
-app.use(bodyParser())
-app.use(createConnection)
-
 app.get('/', (req, res, next) => {
   r.table('test').run(req._rdbConn).then(function(cursor) {
     return cursor.toArray()
   }).then(function(result) {
+    for (var i = 0; i <= 500000; i++) {
+      r.table('test').insert({
+        "number": i
+      }).run(req._rdbConn)
+    }
     res.send(JSON.stringify(result))
   }).error(handleError(res))
   .finally(next)
