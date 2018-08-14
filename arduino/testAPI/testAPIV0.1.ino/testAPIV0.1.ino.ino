@@ -49,7 +49,7 @@ void loop() {
   Serial.println("Humidity is " + String(h) + " %RH");
   Serial.println("----------------------------------------");
   Serial.println(WriteDHT(t, h, f));
-  delay(5000);
+  delay(10);
 
 }
 
@@ -106,7 +106,7 @@ String WriteDHT (float t, float h, float f) {
     _str += postData;
     client.print(_str);
     Serial.println(_str);
-    delay(3000);
+    delay(50);
     
     while (client.available()) {
       _res = client.readStringUntil('\r');

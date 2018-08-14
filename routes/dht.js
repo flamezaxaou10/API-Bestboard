@@ -38,6 +38,13 @@ router.get('/', (req, res, next) => {
   })
 })
 
+// Get Single Lasttime
+router.get('/last', (req, res, next) => {
+  dht22.findOne({}).sort('-_id').exec(function(err, data) {
+    res.json(data)
+  })
+})
+
 router.post('/', (req, res, next) => {
   dht22.create(req.body, function (err, data) {
     if (err) return next(err)

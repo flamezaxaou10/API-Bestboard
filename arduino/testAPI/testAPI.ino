@@ -4,10 +4,10 @@
 #include <Ethernet.h>
 #include <SPI.h>
 
-const char *ssid = "NSTDA-Project-7013";
-const char *passw = "1q2w3e4r";
+const char *ssid = "HASTAG F";
+const char *passw = "asdfzxcv";
 
-#define host "172.18.43.132"
+#define host "192.168.43.219"
 #define port 5582
 #define DHTPIN 2
 #define DHTTYPE DHT22
