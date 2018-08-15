@@ -1,0 +1,45 @@
+{
+  "sensorId": "s0001",
+  "desired": {
+
+  },
+  "timestamp": "",
+  "status": "enabled",
+  "metadata": {
+    "thingId": "t0001",
+    "type": "subsystem",
+    "createInfo": {
+      "createUser": "ObjectID(1)",
+      "createTine": ""
+    },
+    "name": "Temperature and Humidity",
+    "description": "",
+    "language": "",
+    "sensorInfo": {
+      "type": "Temperature",
+      "model": "DHT22"
+    },
+    "categories": [
+      {
+        "name": "Temperature"
+      },
+      {
+        "name": "Himidity"
+      }
+    ],
+    "location": {
+      "type": "Fixed",
+      "address": "",
+      "city": "",
+      "county": "",
+      "country": "",
+      "postalCode": "",
+      "freeText": "Build 10 Floor 4 Room 412",
+      "gps": {
+        "latitude": "",
+        "longitude": ""
+      }
+    },
+    "version": "1.0"
+  }
+}
