@@ -13,8 +13,8 @@
       "createTine": ""
     },
     "name": "Temperature and Humidity",
-    "description": "",
-    "language": "",
+    "description": "Current Temperature and Humidity",
+    "language": "en-US",
     "sensorInfo": {
       "type": "Temperature",
       "model": "DHT22"

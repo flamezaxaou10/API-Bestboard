@@ -29,7 +29,6 @@ function verifyToken(req, res, next) {
   }
 }
 
-
 router.get('/', (req, res, next) => {
   dht22.find(function (err, data) {
     if (err) return next(err)
