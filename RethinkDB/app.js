@@ -42,12 +42,19 @@ app.get('/', (req, res, next) => {
   r.table('test').run(req._rdbConn).then(function(cursor) {
     return cursor.toArray()
   }).then(function(result) {
-    for (var i = 0; i <= 500000; i++) {
-      r.table('test').insert({
-        "number": i
-      }).run(req._rdbConn)
-    }
-    res.send(JSON.stringify(result))
+    // for (var i = 0; i <= 500000; i++) {
+    //   r.table('test').insert({
+    //     "number": i
+    //   }).run(req._rdbConn)
+    // }
+    res.send((result))
+  }).error(handleError(res))
+  .finally(next)
+})
+
+app.post('/insert', (req, res, next) => {
+  r.table('test').insert(req.body).run(req._rdbConn).then(function (result) {
+    res.send(result)
   }).error(handleError(res))
   .finally(next)
 })
