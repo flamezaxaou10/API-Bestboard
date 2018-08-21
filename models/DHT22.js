@@ -19,23 +19,23 @@ var DHT22 = new mongoose.Schema({
     status: { type: String, default: 'disabled' },
     timestamp: { type: Date, default: Date.now }
   },
-  name: "Temperature and Humidity",
-  description: "Current Temperature and Humidity",
+  name: { type: String, default: 'Temperature and Humidity'},
+  description: { type: String, default: 'Current Temperature and Humidity'},
   language: { type: String, default: 'en-US' },
   sensorInfo: {
-    type: "Temperature",
-    model: "DHT22"
+    type: { type: String, default: 'Temperature'},
+    model: { type: String, default:'DHT22'}
   },
   categories: [
     {
-      name: "Temperature"
+      name: { type: String, default:'Temperature'}
     },
     {
-      name: "Humidity"
+      name: { type: String, default:'Humidity'}
     }
   ],
   location: {
-    type: "Fixed",
+    type: { type: String, default:'Fixed'},
     address: { type: String },
     city: { type: String },
     county: { type: String },
@@ -47,7 +47,7 @@ var DHT22 = new mongoose.Schema({
       longitude: { type: Number }
     }
   },
-  version: { type: String, default: "1.0"}
+  version: { type: String, default: '1.0'}
 })
 
 module.exports = mongoose.model('thing', DHT22)
