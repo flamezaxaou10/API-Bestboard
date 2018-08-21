@@ -24,7 +24,7 @@
         "name": "Temperature"
       },
       {
-        "name": "Himidity"
+        "name": "Humidity"
       }
     ],
     "location": {

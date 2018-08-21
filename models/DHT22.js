@@ -1,46 +1,53 @@
 var mongoose = require('mongoose')
 var DHT22 = new mongoose.Schema({
   sensorId: { type: String, required: true },
-  attributes: {
+  desired: {
     temperature: {
       celsius: {
-        value: {type: Number, default: 0},
-        unit: {type: String, default: 'Celsius'}
+        value: { type: Number, default: 0 },
+        unit: { type: String, default: 'Celsius' }
       },
       fahrenheit: {
-        value: {type: Number, default: 0},
-        unit: {type: String, default: 'Fahreheit'}
+        value: { type: Number, default: 0 },
+        unit: { type: String, default: 'Fahreheit' }
       }
     },
     humidity: {
-      value: {type: Number, default: 0},
-      unit: {type: String, default: 'Percent'}
+      value: { type: Number, default: 0 },
+      unit: { type: String, default: 'Percent' }
     },
     status: { type: String, default: 'disabled' },
-    statusUpdateTime: { type: Date, default: Date.now }
-  }
-  // metadata: {
-  //   type: 'sensor',
-  //   title: 'Thermometer and Moisture Meter',
-  //   model: 'DHT22',
-  //    language: 'en-US',
-  //    tag: [
-  //     'Tempreture',
-  //     'Humidity',
-  //     'HeatIndex'
-  //   ],
-  //   comment: {type: String, default: ''},
-	// 	author: 'userId',
-	// 	location: {
-  //     building: {type: String, default: ''},
-  //     floor: {type: String, default: ''},
-  //     room: {type: String, default: ''}
-  //   },
-	// 	description: '',
-  //   created: '',
-  //   version: 0.1
-  // }
-  
+    timestamp: { type: Date, default: Date.now }
+  },
+  name: "Temperature and Humidity",
+  description: "Current Temperature and Humidity",
+  language: { type: String, default: 'en-US' },
+  sensorInfo: {
+    type: "Temperature",
+    model: "DHT22"
+  },
+  categories: [
+    {
+      name: "Temperature"
+    },
+    {
+      name: "Humidity"
+    }
+  ],
+  location: {
+    type: "Fixed",
+    address: { type: String },
+    city: { type: String },
+    county: { type: String },
+    country: { type: String },
+    postalCode: { type: String },
+    freeText: { type: String },
+    gps: {
+      latitude: { type: Number },
+      longitude: { type: Number }
+    }
+  },
+  version: { type: String, default: "1.0"}
 })
 
 module.exports = mongoose.model('thing', DHT22)
