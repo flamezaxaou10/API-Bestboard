@@ -10,7 +10,7 @@
     "type": "subsystem",
     "createInfo": {
       "createUser": "ObjectID(1)",
-      "createTine": ""
+      "createTime": ""
     },
     "name": "Temperature and Humidity",
     "description": "Current Temperature and Humidity",
