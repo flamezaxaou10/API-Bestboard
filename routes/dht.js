@@ -52,4 +52,12 @@ router.post('/', (req, res, next) => {
   })
 })
 
+router.get('/:sensorId', (req, res, next) => {
+  dht22.find({sensorId:req.params.user}, function (err, payload) {
+    if (err) return next(err)
+    res.json(payload)
+    res.status(200)
+  })
+})
+
 module.exports = router
