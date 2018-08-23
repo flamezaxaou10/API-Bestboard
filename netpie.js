@@ -20,7 +20,7 @@ microgear.on('message', function (topic, msg) {
   if (!topicAr[2].search("table")) {
     var msgi = msgStr.split(",")
     axios.post(server + '/dht', {
-      sensorId : topicAr[2],
+      sensorId: topicAr[2],
       desired: {
         temperature: {
           celsius: {
@@ -35,17 +35,21 @@ microgear.on('message', function (topic, msg) {
         }
       },
       status: "enabled",
-      location: {
-        address: "NECTEC ,NSTDA",
-        city: "Khlong Luang",
-        county: "Pathumthani",
-        country: "Thailand",
-        postalCode: "12120",
-        freeText: "Build 12, Floor 4, Room 418B"
+      meatadata: {
+        thingId : topicAr[2],
+        location: {
+          address: "NECTEC ,NSTDA",
+          city: "Khlong Luang",
+          county: "Pathumthani",
+          country: "Thailand",
+          postalCode: "12120",
+          freeText: "Build 12, Floor 4, Room 418B"
+        }
       }
+
     }).then(function (res) {
       console.log(res)
-    }).catch (function (error) {
+    }).catch(function (error) {
       console.log(error)
     })
   }
