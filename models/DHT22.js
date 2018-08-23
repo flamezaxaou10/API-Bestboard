@@ -15,10 +15,10 @@ var DHT22 = new mongoose.Schema({
     humidity: {
       value: { type: Number, default: 0 },
       unit: { type: String, default: 'Percent' }
-    },
-    status: { type: String, default: 'disabled' },
-    timestamp: { type: Date, default: Date.now }
+    }
   },
+  status: { type: String, default: 'disabled' },
+  timestamp: { type: Date, default: Date.now },
   metadata: {
     thingId: { type: String, required: true },
     type: { type: String, default: 'subsystem' },
