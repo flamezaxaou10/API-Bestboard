@@ -1,7 +1,7 @@
 var Microgear = require('microgear')
 const axios = require('axios');
 
-const server = 'http://172.18.42.222:5582'
+const server = 'http://localhost:5582'
 
 const APPID = 'SmartOfficeAt418B'
 const APPKEY = 'cphjkAqedWvJm3W'
@@ -35,8 +35,8 @@ microgear.on('message', function (topic, msg) {
         }
       },
       status: "enabled",
-      meatadata: {
-        thingId : topicAr[2],
+      metadata: {
+        thingId: topicAr[2],
         location: {
           address: "NECTEC ,NSTDA",
           city: "Khlong Luang",
@@ -46,7 +46,6 @@ microgear.on('message', function (topic, msg) {
           freeText: "Build 12, Floor 4, Room 418B"
         }
       }
-
     }).then(function (res) {
       console.log(res)
     }).catch(function (error) {
