@@ -32,6 +32,7 @@ function verifyToken(req, res, next) {
 router.get('/', (req, res, next) => {
   dht22.find({}).sort('-_id').limit(2000).exec(function (err, data) {
     if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
     res.json(data)
     res.status(200)
   })
@@ -40,6 +41,7 @@ router.get('/', (req, res, next) => {
 // Get Single Lasttime
 router.get('/last', (req, res, next) => {
   dht22.findOne({}).sort('-_id').exec(function(err, data) {
+    res.header("Access-Control-Allow-Origin", "*")
     res.json(data)
   })
 })
@@ -47,6 +49,7 @@ router.get('/last', (req, res, next) => {
 router.post('/', (req, res, next) => {
   dht22.create(req.body, function (err, data) {
     if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
     res.json(data)
     res.status(201)
   })
@@ -56,6 +59,7 @@ router.get('/:sensorId', (req, res, next) => {
   dht22.find({sensorId:req.params.sensorId})
     .sort('-_id').limit(500).exec(function (err, payload) {
     if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
   })

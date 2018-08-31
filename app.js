@@ -26,7 +26,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // App Start
-app.setRequestHeader("Access-Control-Allow-Origin", "*")
 app.use('/users', user)
 app.use('/html', exhtml)
 app.use('/dht', dht22)
