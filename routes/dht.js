@@ -30,7 +30,7 @@ function verifyToken(req, res, next) {
 }
 
 router.get('/', (req, res, next) => {
-  dht22.find(function (err, data) {
+  dht22.find({}).sort('-_id').limit(2000).exec(function (err, data) {
     if (err) return next(err)
     res.json(data)
     res.status(200)
@@ -53,7 +53,8 @@ router.post('/', (req, res, next) => {
 })
 
 router.get('/:sensorId', (req, res, next) => {
-  dht22.find({sensorId:req.params.user}, function (err, payload) {
+  dht22.find({sensorId:req.params.sensorId})
+    .sort('-_id').limit(500).exec(function (err, payload) {
     if (err) return next(err)
     res.json(payload)
     res.status(200)
