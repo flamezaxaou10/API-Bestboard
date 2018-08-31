@@ -8,7 +8,6 @@ var dht22 = require('../models/DHT22.js')
 
 // FORMAT OF TOKEN
 // Authorization: Bearer <access_token>
-
 // Verify Token
 function verifyToken(req, res, next) {
   // Get auth header value
