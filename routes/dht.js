@@ -28,39 +28,55 @@ function verifyToken(req, res, next) {
   }
 }
 
+// Get All
 router.get('/', (req, res, next) => {
-  dht22.find({}).sort('-_id').limit(2000).exec(function (err, data) {
+  dht22.find({}).sort('-_id').limit(2000).exec(function (err, payload) {
     if (err) return next(err)
     res.header("Access-Control-Allow-Origin", "*")
-    res.json(data)
+    res.json(payload)
     res.status(200)
   })
 })
 
 // Get Single Lasttime
 router.get('/last', (req, res, next) => {
-  dht22.findOne({}).sort('-_id').exec(function(err, data) {
-    res.header("Access-Control-Allow-Origin", "*")
-    res.json(data)
-  })
-})
-
-router.post('/', (req, res, next) => {
-  dht22.create(req.body, function (err, data) {
-    if (err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
-    res.json(data)
-    res.status(201)
-  })
-})
-
-router.get('/:sensorId', (req, res, next) => {
-  dht22.find({sensorId:req.params.sensorId})
-    .sort('-_id').limit(500).exec(function (err, payload) {
+  dht22.findOne({}).sort('-_id').exec(function (err, payload) {
     if (err) return next(err)
     res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
+  })
+})
+
+// Get Follow SensorId
+router.get('/:sensorId', (req, res, next) => {
+  dht22.find({ sensorId: req.params.sensorId })
+    .sort('-timestamp').limit(1500).exec(function (err, payload) {
+      if (err) return next(err)
+      res.header("Access-Control-Allow-Origin", "*")
+      res.json(payload)
+      res.status(200)
+    })
+})
+
+router.post('/', (req, res, next) => {
+  dht22.create(req.body, function (err, payload) {
+    if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
+    res.json(payload)
+    res.status(201)
+  })
+})
+
+router.get('/last24hr/:sensorId', (req, res, next) => {
+  dht22.find({
+    timestamp: { $gt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+    sensorId: req.params.sensorId
+  }).sort('-timestamp').exec(function (err, payload) {
+    if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
+    res.json(payload)
+    res.status(201)
   })
 })
 
