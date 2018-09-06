@@ -68,6 +68,7 @@ router.post('/', (req, res, next) => {
   })
 })
 
+// Get last 24 hr
 router.get('/last24hr/:sensorId', (req, res, next) => {
   dht22.find({
     timestamp: { $gt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
@@ -76,7 +77,55 @@ router.get('/last24hr/:sensorId', (req, res, next) => {
     if (err) return next(err)
     res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
-    res.status(201)
+    res.status(200)
+  })
+})
+
+let getDate = (Date.now() - 24 * 60 * 60 * 1000)
+let data = []
+// Get last Week 100 record
+router.get('/lastweek/:sensorId', (req, res, next) => {
+  for (let i = 0; i < 7; i++) {
+    console.log(getDate)
+    dht22.find({
+      timestamp: { $gt: new Date(getDate) },
+      sensorId: req.params.sensorId
+    }).sort('-timestamp').limit(100).exec(function (err, payload) {
+      if (err) return next(err)
+      // res.header("Access-Control-Allow-Origin", "*")
+      data.push(payload)
+      
+    })
+    getDate = (getDate - 24 * 60 * 60 * 1000)
+  }
+  res.json(data)
+  res.status(200)
+  data = []
+})
+
+// Get last 7 days
+router.get('/last7days/:sensorId', (req, res, next) => {
+  dht22.find({
+    timestamp: { $gt: new Date(Date.now() - (24 * 60 * 60 * 1000) * 7) },
+    sensorId: req.params.sensorId
+  }).sort('-timestamp').exec(function (err, payload) {
+    if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
+    res.json(payload)
+    res.status(200)
+  })
+})
+
+// Get last 30 days
+router.get('/last30days/:sensorId', (req, res, next) => {
+  dht22.find({
+    timestamp: { $gt: new Date(Date.now() - (24 * 60 * 60 * 1000) * 30) },
+    sensorId: req.params.sensorId
+  }).sort('-timestamp').exec(function (err, payload) {
+    if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
+    res.json(payload)
+    res.status(200)
   })
 })
 
