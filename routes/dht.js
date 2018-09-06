@@ -81,23 +81,22 @@ router.get('/last24hr/:sensorId', (req, res, next) => {
   })
 })
 
-let getDate = (Date.now() - 24 * 60 * 60 * 1000)
-let data = []
+var data = []
+var getDate = (Date.now() - 24 * 60 * 60 * 1000)
 // Get last Week 100 record
 router.get('/lastweek/:sensorId', (req, res, next) => {
-  for (let i = 0; i < 7; i++) {
-    console.log(getDate)
-    dht22.find({
-      timestamp: { $gt: new Date(getDate) },
-      sensorId: req.params.sensorId
-    }).sort('-timestamp').limit(100).exec(function (err, payload) {
-      if (err) return next(err)
-      // res.header("Access-Control-Allow-Origin", "*")
-      data.push(payload)
-      
-    })
-    getDate = (getDate - 24 * 60 * 60 * 1000)
-  }
+  
+  console.log(getDate)
+  dht22.find({
+    timestamp: { $gt: new Date(getDate) },
+    sensorId: req.params.sensorId
+  }).sort('-timestamp').limit(100).exec(function (err, payload) {
+    if (err) return next(err)
+    data.push(payload)
+  })
+  getDate = (getDate - 24 * 60 * 60 * 1000)
+
+  res.header("Access-Control-Allow-Origin", "*")
   res.json(data)
   res.status(200)
   data = []
