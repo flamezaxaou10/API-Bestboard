@@ -75,7 +75,7 @@ router.get('/last24hr/:sensorId', (req, res, next) => {
     sensorId: req.params.sensorId
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
-    let data = []
+    var data = []
     payload.forEach(function (element, index) {
       if (index % 10 === 2) {
         data.push(element)
@@ -87,22 +87,6 @@ router.get('/last24hr/:sensorId', (req, res, next) => {
   })
 })
 
-// Get last Week 100 record
-router.get('/lastweek/:sensorId', (req, res, next) => {
-  dht22.find({
-    sensorId: req.params.sensorId
-  }).sort('-timestamp')
-    .where('timestamp').gt(new Date(Date.now())).lt(Date.now() - (24 * 60 * 60 * 1000) * 7)
-    .limit(1000)
-    .exec(function (err, payload) {
-      if (err) return next(err)
-      res.header("Access-Control-Allow-Origin", "*")
-      res.json(payload)
-      res.status(200)
-    })
-
-})
-
 // Get last 7 days
 router.get('/last7days/:sensorId', (req, res, next) => {
   dht22.find({
@@ -110,7 +94,7 @@ router.get('/last7days/:sensorId', (req, res, next) => {
     sensorId: req.params.sensorId
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
-    let data = []
+    var data = []
     payload.forEach(function (element, index) {
       if (index % 10 === 2) {
         data.push(element)
@@ -129,8 +113,14 @@ router.get('/last30days/:sensorId', (req, res, next) => {
     sensorId: req.params.sensorId
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
+    var data = []
+    payload.forEach(function (element, index) {
+      if (index % 30 === 2) {
+        data.push(element)
+      }
+    })
     res.header("Access-Control-Allow-Origin", "*")
-    res.json(payload)
+    res.json(data)
     res.status(200)
   })
 })
