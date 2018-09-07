@@ -17,7 +17,7 @@ var DHT22 = new mongoose.Schema({
       unit: { type: String, default: 'Percent' }
     }
   },
-  status: { type: String, default: 'disabled' },
+  status: { type: String, default: 'enable' },
   timestamp: { type: Date, default: Date.now },
   metadata: {
     thingId: { type: String, required: true },
