@@ -14,6 +14,7 @@ var user = require('./routes/user')
 var exhtml = require('./routes/html')
 var dht22 = require('./routes/dht')
 var sensors = require('./routes/sensors')
+var machine = require('./routes/machine')
 
 mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
@@ -30,13 +31,14 @@ app.use('/users', user)
 app.use('/html', exhtml)
 app.use('/dht', dht22)
 app.use('/sensor', sensors)
+app.use('/machine', machine)
 
 app.listen(port, () => {
   console.log('Start server at port ' + port + ' >> localhost:' + port)
 })
 
 app.get('/', (req, res) => {
-  res.send('Hello API ')
+  res.send('Project API IoT')
 })
 
 app.post('/login', (req, res) => {
