@@ -1,22 +1,7 @@
 var mongoose = require('mongoose')
 var DHT22 = new mongoose.Schema({
   sensorId: { type: String, required: true },
-  desired: {
-    temperature: {
-      celsius: {
-        value: { type: Number, default: 0 },
-        unit: { type: String, default: 'Celsius' }
-      },
-      fahrenheit: {
-        value: { type: Number, default: 0 },
-        unit: { type: String, default: 'Fahreheit' }
-      }
-    },
-    humidity: {
-      value: { type: Number, default: 0 },
-      unit: { type: String, default: 'Percent' }
-    }
-  },
+  desired: {type: Object},
   status: { type: String, default: 'enabled' },
   timestamp: { type: Date, default: Date.now },
   metadata: {

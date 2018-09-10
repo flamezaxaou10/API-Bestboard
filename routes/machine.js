@@ -8,7 +8,6 @@ router.get('/', (req, res, next) => {
   machine.find().exec(function(err, payload) {
     if(err) return next(err)
     res.header("Access-Control-Allow-Origin", "*")
-
     res.json(payload)
     res.status(200)
   })
@@ -18,7 +17,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   machine.create(req.body, function(err, payload){
     if(err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
+    //res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(201)
   })
@@ -43,8 +42,8 @@ router.put('/:machineId', function(req, res, next) {
 })
 
 // Remove
-router.delete('/:machineName', function(req, res, next) {
-  machine.findOneAndRemove({machineName:req.params.machineName}, function(err, payload) {
+router.delete('/:Id', function(req, res, next) {
+  machine.findByIdAndRemove({_id:req.params.Id}, function(err, payload) {
     if(err) return next(err)
     res.json(payload)
     res.status(200)

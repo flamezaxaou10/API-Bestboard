@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 const port = 5582
+const cors = require('cors')
 
 const jwt = require('jsonwebtoken')
 
@@ -27,6 +28,7 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // App Start
+app.use(cors())
 app.use('/users', user)
 app.use('/html', exhtml)
 app.use('/dht', dht22)
