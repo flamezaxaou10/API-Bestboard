@@ -113,17 +113,24 @@ router.get('/last30days/:sensorId', (req, res, next) => {
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
     var data = []
+    var month = []
+    var week = []
+    var day = []
     payload.forEach(function (element, index) {
       if (index % 30 === 2) {
-        data[0].push(element)
+        month.push(element)
         if (element.timestamp >= new Date(Date.now() - (24 * 60 * 60 * 1000) * 7)) {
-          data[1].push(element)
+          week.push(element)
         }
         if (element.timestamp >= new Date(Date.now() - (24 * 60 * 60 * 1000) * 1)) {
-          data[3].push(element)
+          day.push(element)
         }
       }
     })
+    data.push(month)
+    data.push(week)
+    data.push(day)
+    
     res.header("Access-Control-Allow-Origin", "*")
     res.json(data)
     res.status(200)
