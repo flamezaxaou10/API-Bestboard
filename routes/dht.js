@@ -70,7 +70,7 @@ router.post('/', (req, res, next) => {
 // Get last 24 hr
 router.get('/last24hr/:sensorId', (req, res, next) => {
   dht22.find({
-    timestamp: { $gt: new Date(Date.now() - 24 * 60 * 60 * 1000) },
+    timestamp: { $gt: new Date((Date.now() - 24 * 60 * 60 * 1000) * 1) },
     sensorId: req.params.sensorId
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
