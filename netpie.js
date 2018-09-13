@@ -24,14 +24,14 @@ microgear.on('message', function (topic, msg) {
       desired: {
         temperature: {
           celsius: {
-            value: msgi[1]
+            value: msgi[1] * 1.00
           },
           fahrenheit: {
             value: (msgi[1] * 1.8) + 32
           }
         },
         humidity: {
-          value: msgi[0]
+          value: msgi[0] * 1.00
         }
       },
       status: "enabled",
