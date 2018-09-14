@@ -5,8 +5,8 @@ var machine = require('../models/Machine.js')
 
 // Get All
 router.get('/', (req, res, next) => {
-  machine.find().exec(function(err, payload) {
-    if(err) return next(err)
+  machine.find().exec(function (err, payload) {
+    if (err) return next(err)
     res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
@@ -15,8 +15,8 @@ router.get('/', (req, res, next) => {
 
 // Create Machine
 router.post('/', (req, res, next) => {
-  machine.create(req.body, function(err, payload){
-    if(err) return next(err)
+  machine.create(req.body, function (err, payload) {
+    if (err) return next(err)
     //res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(201)
@@ -27,13 +27,23 @@ router.post('/', (req, res, next) => {
 router.get('/:machineId', (req, res, next) => {
   machine.findById(req.params.machineId, function (err, payload) {
     if (err) return next(err)
+    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
   })
 })
 
+// Get All Widget By machineId
+router.get('/widgets/:machineId', (req, res, next) => {
+  machine.findById(req.params.machineId, function (err, payload) {
+    if (err) return next(err)
+    res.json(payload.widgets)
+    res.status(200)
+  })
+})
+
 // Update MachineId
-router.put('/:machineId', function(req, res, next) {
+router.put('/:machineId', function (req, res, next) {
   machine.findByIdAndUpdate(req.params.machineId, req.body, function (err, payload) {
     if (err) return next(err)
     res.json(payload)
@@ -42,12 +52,27 @@ router.put('/:machineId', function(req, res, next) {
 })
 
 // Remove
-router.delete('/:Id', function(req, res, next) {
-  machine.findByIdAndRemove({_id:req.params.Id}, function(err, payload) {
-    if(err) return next(err)
+router.delete('/:Id', function (req, res, next) {
+  machine.findByIdAndRemove({ _id: req.params.Id }, function (err, payload) {
+    if (err) return next(err)
     res.json(payload)
     res.status(200)
   })
+})
+
+// push Widget
+router.put('/widgets/:machineId', function (req, res, next) {
+  machine.findByIdAndUpdate(
+    {
+      _id: req.params.machineId
+    },
+    {
+      "$push": { widgets: req.body }
+    }, function(err, payload) {
+      if(err) return next(err)
+      res.json(payload)
+      res.status(200)
+    })
 })
 
 module.exports = router
