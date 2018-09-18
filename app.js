@@ -16,6 +16,7 @@ var exhtml = require('./routes/html')
 var dht22 = require('./routes/dht')
 var sensors = require('./routes/sensors')
 var machine = require('./routes/machine')
+var widget = require('./routes/widget')
 
 mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
@@ -34,6 +35,7 @@ app.use('/html', exhtml)
 app.use('/dht', dht22)
 app.use('/sensor', sensors)
 app.use('/machine', machine)
+app.use('/widget', widget)
 
 app.listen(port, () => {
   console.log('Start server at port ' + port + ' >> localhost:' + port)

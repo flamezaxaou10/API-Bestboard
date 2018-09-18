@@ -106,30 +106,30 @@ router.get('/last7days/:sensorId', (req, res, next) => {
 })
 
 // Get last 30 days
-router.get('/last30days/:sensorId', (req, res, next) => {
+router.get('/filterChart/:sensorId', (req, res, next) => {
   dht22.find({
-    timestamp: { $gt: new Date(Date.now() - (24 * 60 * 60 * 1000) * 30) },
+    timestamp: { $gt: new Date(Date.now() - (24 * 60 * 60 * 1000) * 7) },
     sensorId: req.params.sensorId
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
     var data = []
-    var month = []
-    var week = []
+    var hour = []
     var day = []
+    var week = []
     payload.forEach(function (element, index) {
-      if (index % 30 === 2) {
-        month.push(element)
-        if (element.timestamp >= new Date(Date.now() - (24 * 60 * 60 * 1000) * 7)) {
-          week.push(element)
-        }
-        if (element.timestamp >= new Date(Date.now() - (24 * 60 * 60 * 1000) * 1)) {
+      if (index % 10 === 2) {
+        week.push(element)
+        if (element.timestamp >= new Date(Date.now() - (24 * 60 * 60 * 1000))) {
           day.push(element)
+        }
+        if (element.timestamp >= new Date(Date.now() - (60 * 60 * 1000))) {
+          hour.push(element)
         }
       }
     })
-    data.push(month)
     data.push(week)
     data.push(day)
+    data.push(hour)
     
     res.header("Access-Control-Allow-Origin", "*")
     res.json(data)
