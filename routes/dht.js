@@ -122,9 +122,9 @@ router.get('/filterChart/:sensorId', (req, res, next) => {
         if (element.timestamp >= new Date(Date.now() - (24 * 60 * 60 * 1000))) {
           day.push(element)
         }
-        if (element.timestamp >= new Date(Date.now() - (60 * 60 * 1000))) {
-          hour.push(element)
-        }
+      }
+      if (element.timestamp >= new Date(Date.now() - (60 * 60 * 1000))) {
+        hour.push(element)
       }
     })
     data.push(week)
