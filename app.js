@@ -17,6 +17,7 @@ var dht22 = require('./routes/dht')
 var sensors = require('./routes/sensors')
 var machine = require('./routes/machine')
 var widget = require('./routes/widget')
+var netpie = require('./routes/netpie')
 
 mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
@@ -36,6 +37,7 @@ app.use('/dht', dht22)
 app.use('/sensor', sensors)
 app.use('/machine', machine)
 app.use('/widget', widget)
+app.use('/netpie', netpie)
 
 app.listen(port, () => {
   console.log('Start server at port ' + port + ' >> localhost:' + port)
