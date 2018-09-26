@@ -2,6 +2,8 @@ const express = require('express')
 const app = express()
 const port = 5582
 const cors = require('cors')
+var http = require('http').Server(app)
+var io = require('socket.io')(http)
 
 const jwt = require('jsonwebtoken')
 
@@ -26,8 +28,21 @@ mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseL
 
 app.set('view engine', 'html')
 app.use(logger('dev'))
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(bodyParser.json({limit: '50mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true }))
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*")
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  )
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Methods", "PUT, POST, PATCH, DELETE, GET")
+    return res.status(200).json({})
+  }
+  next()
+})
 
 // App Start
 app.use(cors())
@@ -39,13 +54,21 @@ app.use('/machine', machine)
 app.use('/widget', widget)
 app.use('/netpie', netpie)
 
-app.listen(port, () => {
+io.on('connection', function(socket){
+  console.log('a user connected')
+  socket.on('disconnect', function(){
+    console.log('user disconnected')
+  })
+})
+
+http.listen(port, () => {
   console.log('Start server at port ' + port + ' >> localhost:' + port)
 })
 
 app.get('/', (req, res) => {
   res.send('Project API IoT')
 })
+
 
 app.post('/login', (req, res) => {
   users.findOne({user:req.body.user, pass:req.body.pass}, function (err, user) {

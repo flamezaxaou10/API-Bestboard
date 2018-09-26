@@ -1,5 +1,6 @@
 var mongoose = require('mongoose')
 var Machine = new mongoose.Schema({
+  machineId: {type: mongoose.Schema.Types.ObjectId, index: true},
   machineName: { type: String, required: true },
   machineType: { type: String }
 })

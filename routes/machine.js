@@ -7,7 +7,6 @@ var machine = require('../models/Machine.js')
 router.get('/', (req, res, next) => {
   machine.find().exec(function (err, payload) {
     if (err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
   })
@@ -17,7 +16,6 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   machine.create(req.body, function (err, payload) {
     if (err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(201)
   })
@@ -27,7 +25,6 @@ router.post('/', (req, res, next) => {
 router.get('/:machineId', (req, res, next) => {
   machine.findById(req.params.machineId, function (err, payload) {
     if (err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
   })
@@ -37,7 +34,6 @@ router.get('/:machineId', (req, res, next) => {
 router.put('/:machineId', (req, res, next) => {
   machine.findByIdAndUpdate(req.params.machineId, req.body, function (err, payload) {
     if (err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
   })
@@ -47,7 +43,6 @@ router.put('/:machineId', (req, res, next) => {
 router.delete('/:Id', (req, res, next) => {
   machine.findByIdAndRemove({ _id: req.params.Id }, function (err, payload) {
     if (err) return next(err)
-    res.header("Access-Control-Allow-Origin", "*")
     res.json(payload)
     res.status(200)
   })
