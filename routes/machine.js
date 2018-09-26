@@ -16,6 +16,7 @@ router.get('/', (req, res, next) => {
 router.post('/', (req, res, next) => {
   machine.create(req.body, function (err, payload) {
     if (err) return next(err)
+    req.io.emit('update-machine', 'new')
     res.json(payload)
     res.status(201)
   })
@@ -34,6 +35,7 @@ router.get('/:machineId', (req, res, next) => {
 router.put('/:machineId', (req, res, next) => {
   machine.findByIdAndUpdate(req.params.machineId, req.body, function (err, payload) {
     if (err) return next(err)
+    req.io.emit('update-machine', 'update')
     res.json(payload)
     res.status(200)
   })
@@ -43,6 +45,7 @@ router.put('/:machineId', (req, res, next) => {
 router.delete('/:Id', (req, res, next) => {
   machine.findByIdAndRemove({ _id: req.params.Id }, function (err, payload) {
     if (err) return next(err)
+    req.io.emit('update-machine', 'delete')
     res.json(payload)
     res.status(200)
   })

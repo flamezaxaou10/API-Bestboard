@@ -1,7 +1,7 @@
 var express = require('express')
 var router = express.Router()
-var multer = require('multer')
 var widget = require('../models/Widget.js')
+
 
 
 // Get All
@@ -26,6 +26,7 @@ router.get('/:machineId', (req, res, next) => {
 router.post('/', (req, res, next) => {
   widget.create(req.body, function (err, payload) {
     if (err) return next(err)
+    req.io.emit('update-widget', 'new')
     res.json(payload)
     res.status(201)
   })
@@ -35,6 +36,7 @@ router.post('/', (req, res, next) => {
 router.put('/:widgetId', (req, res, next) => {
   widget.findByIdAndUpdate(req.params.widgetId, req.body, function (err, payload) {
       if (err) return next(err)
+      req.io.emit('update-widget', 'update')
       res.json(payload)
       res.status(200)
     })
@@ -46,6 +48,7 @@ router.delete('/:widgetId', (req, res, next) => {
   widget.findByIdAndRemove({ 
     _id: req.params.widgetId }, function (err, payload) {
     if (err) return next(err)
+    req.io.emit('update-widget', 'delete')
     res.json(payload)
     res.status(200)
   })
