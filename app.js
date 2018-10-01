@@ -21,6 +21,7 @@ var dht22 = require('./routes/dht')
 var sensors = require('./routes/sensors')
 var machine = require('./routes/machine')
 var widget = require('./routes/widget')
+var datasource = require('./routes/datasource')
 var netpie = require('./routes/netpie')
 
 mongoose.Promise = require('bluebird')
@@ -60,7 +61,9 @@ app.use('/dht', dht22)
 app.use('/sensor', sensors)
 app.use('/machine', machine)
 app.use('/widget', widget)
+app.use('/datasource', datasource)
 app.use('/netpie', netpie)
+
 
 io.on('connection', client => {
   console.log('user connected')
