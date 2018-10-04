@@ -1,6 +1,6 @@
 var mongoose = require('mongoose')
 var Machine = new mongoose.Schema({
-  machineId: { type: String, required: true },
+  boardId: { type: String, required: true },
   widget: {type: Object, max: 0}
 })
 

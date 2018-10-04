@@ -14,8 +14,8 @@ router.get('/', (req, res, next) => {
 })
 
 // Get All Widget By machineId
-router.get('/:machineId', (req, res, next) => {
-  widget.find({machineId: req.params.machineId}, function (err, payload) {
+router.get('/:boardId', (req, res, next) => {
+  widget.find({boardId: req.params.boardId}, function (err, payload) {
     if (err) return next(err)
     res.json(payload)
     res.status(200)
