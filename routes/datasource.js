@@ -13,28 +13,20 @@ router.get('/', (req, res, next) => {
   })
 })
 
-// Get All Widget By machineId
-router.get('/:machineId', (req, res, next) => {
-  datasource.find({machineId: req.params.machineId}, function (err, payload) {
-    if (err) return next(err)
-    res.json(payload)
-    res.status(200)
-  })
-})
 
-// Create Widget
+// Create Datasource
 router.post('/', (req, res, next) => {
   datasource.create(req.body, function (err, payload) {
     if (err) return next(err)
-    req.io.emit('update-datasouce', 'new')
+    req.io.emit('update-datasource', 'new')
     res.json(payload)
     res.status(201)
   })
 })
 
-// push Widget
-router.put('/:widgetId', (req, res, next) => {
-  datasource.findByIdAndUpdate(req.params.widgetId, req.body, function (err, payload) {
+// push Datasource
+router.put('/:datasourceId', (req, res, next) => {
+  datasource.findByIdAndUpdate(req.params.datasourceId, req.body, function (err, payload) {
       if (err) return next(err)
       req.io.emit('update-datasource', 'update')
       res.json(payload)
@@ -44,9 +36,9 @@ router.put('/:widgetId', (req, res, next) => {
 
 
 // Remove
-router.delete('/:widgetId', (req, res, next) => {
+router.delete('/:datasourceId', (req, res, next) => {
   datasource.findByIdAndRemove({ 
-    _id: req.params.widgetId }, function (err, payload) {
+    _id: req.params.datasourceId }, function (err, payload) {
     if (err) return next(err)
     req.io.emit('update-datasource', 'delete')
     res.json(payload)

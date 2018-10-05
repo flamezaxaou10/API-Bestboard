@@ -80,7 +80,6 @@ server.listen(port, () => {
 
 app.get('/', (req, res) => {
   res.send('Project API IoT')
-  io.sockets.emit('new-machine', 'new')
 })
 
 
