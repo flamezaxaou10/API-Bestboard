@@ -34,7 +34,7 @@ router.post('/', (req, res, next) => {
 
 // push Widget
 router.put('/:widgetId', (req, res, next) => {
-  widget.findByIdAndUpdate(req.params.widgetId, req.body, function (err, payload) {
+  widget.findByIdAndUpdate(req.params.widgetId, { widget:req.body }, function (err, payload) {
       if (err) return next(err)
       req.io.emit('update-widget', 'update')
       res.json(payload)
