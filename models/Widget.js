@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Machine = new mongoose.Schema({
   boardId: { type: String, required: true },
-  indexMuuri: { tpye: String},
+  indexMuuri: { type: String, default: 9999},
   widget: {type: Object, max: 0}
 })
 
