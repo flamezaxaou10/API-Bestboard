@@ -42,6 +42,15 @@ router.put('/:widgetId', (req, res, next) => {
     })
 })
 
+router.put('/indexMuuri/:widgetId', (req, res, next) => {
+  widget.findByIdAndUpdate(req.params.widgetId, req.body, function (err, payload) {
+      if (err) return next(err)
+      req.io.emit('update-widget', 'update-index')
+      res.json(payload)
+      res.status(200)
+    })
+})
+
 
 // Remove
 router.delete('/:widgetId', (req, res, next) => {
