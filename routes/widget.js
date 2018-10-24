@@ -15,7 +15,7 @@ router.get('/', (req, res, next) => {
 
 // Get All Widget By machineId
 router.get('/:boardId', (req, res, next) => {
-  widget.find({boardId: req.params.boardId}, function (err, payload) {
+  widget.find({ boardId: req.params.boardId }, function (err, payload) {
     if (err) return next(err)
     res.json(payload)
     res.status(200)
@@ -35,27 +35,18 @@ router.post('/', (req, res, next) => {
 // push Widget
 router.put('/:widgetId', (req, res, next) => {
   widget.findByIdAndUpdate(req.params.widgetId, req.body, function (err, payload) {
-      if (err) return next(err)
-      req.io.emit('update-widget', 'update')
-      res.json(payload)
-      res.status(200)
-    })
+    if (err) return next(err)
+    req.io.emit('update-widget', 'update')
+    res.json(payload)
+    res.status(200)
+  })
 })
-
-router.put('/indexMuuri/:widgetId', (req, res, next) => {
-  widget.findByIdAndUpdate(req.params.widgetId, req.body, function (err, payload) {
-      if (err) return next(err)
-      req.io.emit('update-widget', 'update-index')
-      res.json(payload)
-      res.status(200)
-    })
-})
-
 
 // Remove
 router.delete('/:widgetId', (req, res, next) => {
-  widget.findByIdAndRemove({ 
-    _id: req.params.widgetId }, function (err, payload) {
+  widget.findByIdAndRemove({
+    _id: req.params.widgetId
+  }, function (err, payload) {
     if (err) return next(err)
     req.io.emit('update-widget', 'delete')
     res.json(payload)
