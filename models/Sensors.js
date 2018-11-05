@@ -5,7 +5,7 @@ var Sensors = new mongoose.Schema({
   status: { type: String, default: 'enabled' },
   timestamp: { type: Date, default: Date.now },
   metadata: {
-    thingId: { type: String },
+    thingId: { type: String, required: true },
     name: { type: String },
     description: { type: String },
     language: { type: String, default: 'en-US' },
