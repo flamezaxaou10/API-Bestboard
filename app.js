@@ -25,7 +25,7 @@ var datasource = require('./routes/datasource')
 var netpie = require('./routes/netpie')
 
 mongoose.Promise = require('bluebird')
-mongoose.connect('mongodb://flamezaxaou10:flame020540@ds155823.mlab.com:55823/apibestboard', { useMongoClient: true, promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
   .then(() => console.log('MongoDB Connection Succesful'))
   .catch((err) => console.error(err))
 
