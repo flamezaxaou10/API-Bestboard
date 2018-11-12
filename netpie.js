@@ -37,6 +37,11 @@ microgear.on('message', function (topic, msg) {
       status: "enabled",
       metadata: {
         thingId: topicAr[2],
+        name: 'Temperature',
+        sensorInfo: {
+          type: 'Temp',
+          model:'DHT22'
+        },
         location: {
           address: "NECTEC ,NSTDA",
           city: "Khlong Luang",
@@ -47,7 +52,7 @@ microgear.on('message', function (topic, msg) {
         }
       }
     }).then(function (res) {
-      //console.log(res)
+      console.log(res)
     }).catch(function (error) {
       console.log(error)
     })

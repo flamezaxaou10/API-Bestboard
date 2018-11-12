@@ -108,7 +108,7 @@ router.get('/last7days/:sensorId', (req, res, next) => {
 // Get last 30 days
 router.get('/filterChart/:sensorId', (req, res, next) => {
   dht22.find({
-    timestamp: { $gt: new Date(Date.now() - (24 * 60 * 60 * 1000) * 7) },
+    timestamp: { $gte: new Date(Date.now() - ((24 * 60 * 60 * 1000) * 7)) },
     sensorId: req.params.sensorId
   }).sort('-timestamp').exec(function (err, payload) {
     if (err) return next(err)
