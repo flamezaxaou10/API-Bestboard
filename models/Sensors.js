@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 var Sensors = new mongoose.Schema({
   sensorId: { type: String, required: true },
-  desired: { type: Object },
+  desired: { type: Object, required: true},
   status: { type: String, default: 'enabled' },
   timestamp: { type: Date, default: Date.now },
   metadata: {
@@ -27,7 +27,7 @@ var Sensors = new mongoose.Schema({
         longitude: { type: Number }
       }
     },
-    version: { type: String, default: '1.0' }
+    version: { type: String, default: '0.1' }
   }
 })
 

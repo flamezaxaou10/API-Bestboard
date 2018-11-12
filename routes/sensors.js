@@ -80,7 +80,7 @@ router.delete('/:id', function(req, res, next) {
   res.status(200)
 })
 
-// Delete user by user
+// Delete sensor by sensorId
 router.delete('/sensorId/:sensorId', function(req, res, next) {
   user.findOneAndRemove({sensorId:req.params.sensorId}, function (err, payload) {
     if (err) return next(err)

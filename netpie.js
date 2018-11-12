@@ -19,7 +19,7 @@ microgear.on('message', function (topic, msg) {
   console.log(topicAr[2])
   if (!topicAr[2].search("table")) {
     var msgi = msgStr.split(",")
-    axios.post(server + '/dht', {
+    axios.post(server + '/sensor', {
       sensorId: topicAr[2],
       desired: {
         temperature: {

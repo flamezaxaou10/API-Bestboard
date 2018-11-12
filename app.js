@@ -16,13 +16,11 @@ const mongoose = require('mongoose')
 var users = require('./models/User.js')
 
 var user = require('./routes/user')
-var exhtml = require('./routes/html')
 var dht22 = require('./routes/dht')
 var sensors = require('./routes/sensors')
 var board = require('./routes/board')
 var widget = require('./routes/widget')
 var datasource = require('./routes/datasource')
-var netpie = require('./routes/netpie')
 
 mongoose.Promise = require('bluebird')
 mongoose.connect('mongodb://localhost/project', { useMongoClient: true, promiseLibrary: require('bluebird') })
@@ -56,13 +54,11 @@ app.use(function(req, res, next) {
 // App Start
 app.use(cors())
 app.use('/users', user)
-app.use('/html', exhtml)
 app.use('/dht', dht22)
 app.use('/sensor', sensors)
 app.use('/board', board)
 app.use('/widget', widget)
 app.use('/datasource', datasource)
-app.use('/netpie', netpie)
 
 
 io.on('connection', client => {
