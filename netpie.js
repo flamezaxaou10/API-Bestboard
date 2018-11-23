@@ -1,7 +1,8 @@
 var Microgear = require('microgear')
 const axios = require('axios');
 
-const server = 'http://localhost:5582'
+// const server = 'http://localhost:5582'
+const server = 'https://apimongos.herokuapp.com'
 
 const APPID = 'SmartOfficeAt418B'
 const APPKEY = 'cphjkAqedWvJm3W'

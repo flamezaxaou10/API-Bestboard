@@ -1,8 +1,6 @@
 #include "ESP8266WiFi.h"
 #include "DHT.h"
 #include "RestClient.h"
-#include <Ethernet.h>
-#include <SPI.h>
 
 const char *ssid = "HASTAG F";
 const char *passw = "asdfzxcv";
@@ -13,7 +11,7 @@ const char *passw = "asdfzxcv";
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
 
-RestClient client = RestClient("arduino-http-lib-test.herokuapp.com");
+RestClient client = RestClient("apimongos.herokuapp.com");
 
 String response;
 float value;

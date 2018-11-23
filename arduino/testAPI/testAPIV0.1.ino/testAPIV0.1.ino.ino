@@ -1,11 +1,11 @@
 #include "ESP8266WiFi.h"
 #include "DHT.h"
 
-const char *ssid = "HASTAG F";
+const char *ssid = "HashtagF";
 const char *passw = "asdfzxcv";
 
-#define host "192.168.43.219"
-#define port 5582
+#define host "https://apimongos.herokuapp.com"
+#define port 443
 #define DHTPIN 4
 #define DHTTYPE DHT22
 DHT dht(DHTPIN, DHTTYPE);
@@ -37,18 +37,19 @@ void setup() {
 }
 
 void loop() {
-  t = dht.readTemperature();
-  f = dht.readTemperature(true);
-  h = dht.readHumidity();
-  if (isnan(t) || isnan(h)) {
-    Serial.println("Failed to read from DHT sensor!");
-    return;
-  }
-  Serial.println("Temperature is " + String(t) + " celcuis");
-  Serial.println("Temperature is " + String(f) + " fahrenheit");
-  Serial.println("Humidity is " + String(h) + " %RH");
-  Serial.println("----------------------------------------");
-  Serial.println(WriteDHT(t, h, f));
+//  t = dht.readTemperature();
+//  f = dht.readTemperature(true);
+//  h = dht.readHumidity();
+//  if (isnan(t) || isnan(h)) {
+//    Serial.println("Failed to read from DHT sensor!");
+//    return;
+//  }
+//  Serial.println("Temperature is " + String(t) + " celcuis");
+//  Serial.println("Temperature is " + String(f) + " fahrenheit");
+//  Serial.println("Humidity is " + String(h) + " %RH");
+//  Serial.println("----------------------------------------");
+  Serial.println(sayHi());
+  // Serial.println(WriteDHT(t, h, f));
   delay(10);
 
 }
@@ -56,7 +57,7 @@ void loop() {
 String sayHi() {
   WiFiClient client;
   if (client.connect(host, port)) {
-    _str = "GET /dht";
+    _str = "GET /board";
     _str += " HTTP/1.1\r\n";
     _str += "Host: ";
     _str += host;
