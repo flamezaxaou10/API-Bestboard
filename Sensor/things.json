@@ -1,0 +1,63 @@
+{
+  "thingsId": "",
+  "createUpdateInfo": {
+    "createUser": "userId",
+    "createDate": "DateTime",
+    "updateUser": "",
+    "updateDate": ""
+  },
+  "status": "enabled",
+  "updateStatusTime": "",
+  "metadata": {
+    "meta": {
+      "name": "Name is Thing",
+      "description": "Description",
+      "language": "en-US",
+      "version": "1.0"
+    },
+    "container": {
+      "type": "System, Subsystem",
+      "sensors": [
+        {
+          "sensorId": "",
+          "name": ""
+        },
+        {
+          "sensorId": "",
+          "name": ""
+        }
+      ]
+    },
+    "categories": [
+      {
+        "name": "",
+        "id": ""
+      }
+    ],
+    "tags": [
+      {
+        "name": "",
+        "id": 0
+      }
+    ],
+    "location": {
+      "type": "Fixed, Moving, Other",
+      "address": "",
+      "city": "",
+      "state": "",
+      "county": "",
+      "country": "",
+      "postalCode": "",
+      "freeText": "example building, floor, room",
+      "gps": {
+        "latitude": "",
+        "longitude": ""
+      },
+      "comment": ""
+    },
+    "deliveryInfo": {
+      "type": "API, Upload, MQTT, Other",
+      "comment": ""
+    }
+  }
+}
