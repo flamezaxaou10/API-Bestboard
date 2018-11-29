@@ -12,13 +12,13 @@ router.get('/', (req, res, next) => {
 })
 
 // Get All Board by user
-router.get('/:userId', (req, res, next) => {
-  board.find({ userId: req.params.userId }, function (err, payload) {
-    if(err) next(err)
-    res.json(payload)
-    res.status(200)
-  })
-})
+// router.get('/:userId', (req, res, next) => {
+//   board.find({ userId: req.params.userId }, function (err, payload) {
+//     if(err) next(err)
+//     res.json(payload)
+//     res.status(200)
+//   })
+// })
 
 // Create Board
 router.post('/', (req, res, next) => {

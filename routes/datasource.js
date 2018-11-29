@@ -13,14 +13,14 @@ router.get('/', (req, res, next) => {
   })
 })
 
-// Get All Datasource by user
-router.get('/:userId', (req, res, next) => {
-  datasource.find({ userId: req.params.userId }, function (err, payload) {
-    if(err) next(err)
-    res.json(payload)
-    res.status(200)
-  })
-})
+// // Get All Datasource by user
+// router.get('/:userId', (req, res, next) => {
+//   datasource.find({ userId: req.params.userId }, function (err, payload) {
+//     if(err) next(err)
+//     res.json(payload)
+//     res.status(200)
+//   })
+// })
 
 
 // Create Datasource
@@ -42,16 +42,6 @@ router.put('/:datasourceId', (req, res, next) => {
       res.status(200)
     })
 })
-
-// Get All Board by user
-router.get('/:userId', (req, res, next) => {
-  datasource.find({ userId: req.params.userId }, function (err, payload) {
-    if(err) next(err)
-    res.json(payload)
-    res.status(200)
-  })
-})
-
 
 
 // Remove

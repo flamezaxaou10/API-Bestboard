@@ -63,7 +63,6 @@ app.use('/datasource', datasource)
 
 io.on('connection', client => {
   console.log('user connected')
-
   // เมื่อ Client ตัดการเชื่อมต่อ
   client.on('disconnect', () => {
     console.log('user disconnected')
