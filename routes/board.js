@@ -12,6 +12,15 @@ router.get('/', (req, res, next) => {
   })
 })
 
+// Get All Board by user
+router.get('/:userId', (req, res, next) => {
+  board.find({ userId: req.params.userId }, function (err, payload) {
+    if(err) next(err)
+    res.json(payload)
+    res.status(200)
+  })
+})
+
 // Create Board
 router.post('/', (req, res, next) => {
   board.create(req.body, function (err, payload) {
@@ -22,14 +31,14 @@ router.post('/', (req, res, next) => {
   })
 })
 
-// Get by boardId
-router.get('/:boardId', (req, res, next) => {
-  board.findById(req.params.boardId, function (err, payload) {
-    if (err) return next(err)
-    res.json(payload)
-    res.status(200)
-  })
-})
+// // Get by boardId
+// router.get('/:boardId', (req, res, next) => {
+//   board.findById(req.params.boardId, function (err, payload) {
+//     if (err) return next(err)
+//     res.json(payload)
+//     res.status(200)
+//   })
+// })
 
 // Update boardId
 router.put('/:boardId', (req, res, next) => {
