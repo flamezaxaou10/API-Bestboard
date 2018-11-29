@@ -2,7 +2,6 @@ var express = require('express')
 var router = express.Router()
 
 var board = require('../models/Board.js')
-
 // Get All
 router.get('/', (req, res, next) => {
   board.find().exec(function (err, payload) {
