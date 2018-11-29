@@ -2,11 +2,19 @@ var express = require('express')
 var router = express.Router()
 
 var board = require('../models/Board.js')
-
 // Get All
 router.get('/', (req, res, next) => {
   board.find().exec(function (err, payload) {
     if (err) return next(err)
+    res.json(payload)
+    res.status(200)
+  })
+})
+
+// Get All Board by user
+router.get('/:userId', (req, res, next) => {
+  board.find({ userId: req.params.userId }, function (err, payload) {
+    if(err) next(err)
     res.json(payload)
     res.status(200)
   })
@@ -22,14 +30,14 @@ router.post('/', (req, res, next) => {
   })
 })
 
-// Get by boardId
-router.get('/:boardId', (req, res, next) => {
-  board.findById(req.params.boardId, function (err, payload) {
-    if (err) return next(err)
-    res.json(payload)
-    res.status(200)
-  })
-})
+// // Get by boardId
+// router.get('/:boardId', (req, res, next) => {
+//   board.findById(req.params.boardId, function (err, payload) {
+//     if (err) return next(err)
+//     res.json(payload)
+//     res.status(200)
+//   })
+// })
 
 // Update boardId
 router.put('/:boardId', (req, res, next) => {

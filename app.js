@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*")
   res.header(
-    "Access-Control-Allow-Headers", 
+    "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   )
   if (req.method === "OPTIONS") {
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 
 
 io = io(server)
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   req.io = io
   next()
 })
@@ -88,14 +88,28 @@ app.post('/login', (req, res) => {
         user: user.user,
         status: user.status
       }
-      console.log(authData)
-      jwt.sign({ authData }, 'secretkey', { expiresIn: '3h' }, (err, token) => {
+      jwt.sign({ authData }, 'secretkey', { expiresIn: '12h' }, (err, token) => {
+        req.io.emit('update-board', 'new')
+        req.io.emit('update-datasource', 'new')
         res.json({
-          token: token
+          token: token,
+          authData: authData
         })
       })
     } else {
       res.sendStatus(401)
     }
+  })
+})
+
+app.get('/login/:token', (req, res) => {
+  var decoded = jwt.decode(req.params.token)
+  // get the decoded payload and header
+  var decoded = jwt.decode(req.params.token, { complete: true })
+  req.io.emit('update-board', 'new')
+  req.io.emit('update-datasource', 'new')
+  res.json({
+    header: decoded.header,
+    payload: decoded.payload
   })
 })
