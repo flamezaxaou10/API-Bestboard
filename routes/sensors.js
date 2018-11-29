@@ -38,15 +38,15 @@ router.get('/', (req, res, next) => {
 })
 
 // Get Single Lasttime
-router.get('/last/:sensorId', (req, res, next) => {
-  sensors.findOne({sensorId:req.params.sensorId}).sort('-_id').exec(function (err, data) {
+router.get('/:sensorId/lastdata', (req, res, next) => {
+  sensors.findOne({ sensorId: req.params.sensorId }).sort('-_id').exec(function (err, data) {
     res.json(data)
   })
 })
 
 // Get by sensorId
 router.get('/:sensorId', (req, res, next) => {
-  sensors.find({sensorId:req.params.sensorId}, function (err, payload) {
+  sensors.find({ sensorId: req.params.sensorId }, function (err, payload) {
     if (err) return next(err)
     res.json(payload)
     res.status(200)
@@ -63,8 +63,8 @@ router.post('/', (req, res, next) => {
 })
 
 // UPDATE Sensor by Id
-router.put('/:id', function(req, res, next) {
-  user.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
+router.put('/:sensorId', function (req, res, next) {
+  sensors.findByIdAndUpdate({ sensorId: req.params.sensorId }, req.body, function (err, user) {
     if (err) return next(err)
     res.json(req.body)
   })
@@ -72,21 +72,57 @@ router.put('/:id', function(req, res, next) {
 })
 
 // Delete by Id
-router.delete('/:id', function(req, res, next) {
-  user.findByIdAndRemove(req.params.id, req.body, function (err, user) {
+router.delete('/:id', function (req, res, next) {
+  sensors.findByIdAndRemove(req.params.id, req.body, function (err, user) {
     if (err) return next(err)
     res.json(user)
   })
   res.status(200)
 })
 
-// Delete user by user
-router.delete('/sensorId/:sensorId', function(req, res, next) {
-  user.findOneAndRemove({sensorId:req.params.sensorId}, function (err, payload) {
+// Delete sensor by sensorId
+router.delete('/sensorId/:sensorId', function (req, res, next) {
+  sensors.findOneAndRemove({ sensorId: req.params.sensorId }, function (err, payload) {
     if (err) return next(err)
     res.json(payload)
   })
   res.status(200)
+})
+
+// Get by time day
+router.get('/:sensorId/day=:day', (req, res, next) => {
+  sensors.find({
+    timestamp: { $gte: new Date((Date.now() - (24 * 60 * 60 * 1000) * parseInt(req.params.day))) },
+    sensorId: req.params.sensorId
+  }).sort('timestamp').exec(function (err, payload) {
+    if (err) return next(err)
+    res.json(payload)
+    res.status(200)
+  })
+})
+
+// Get by time hour
+router.get('/:sensorId/hour=:hour', (req, res, next) => {
+  sensors.find({
+    timestamp: { $gte: new Date((Date.now() - (parseInt(req.params.hour) * 60 * 60 * 1000))) },
+    sensorId: req.params.sensorId
+  }).sort('timestamp').exec(function (err, payload) {
+    if (err) return next(err)
+    res.json(payload)
+    res.status(200)
+  })
+})
+
+// Get by time
+router.get('/:sensorId/minute=:minute', (req, res, next) => {
+  sensors.find({
+    timestamp: { $gte: new Date((Date.now() - (parseInt(req.params.minute) * 60 * 1000))) },
+    sensorId: req.params.sensorId
+  }).sort('timestamp').exec(function (err, payload) {
+    if (err) return next(err)
+    res.json(payload)
+    res.status(200)
+  })
 })
 
 module.exports = router

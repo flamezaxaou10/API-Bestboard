@@ -1,7 +1,8 @@
 var Microgear = require('microgear')
 const axios = require('axios');
 
-const server = 'http://localhost:5582'
+// const server = 'http://localhost:5582'
+const server = 'https://apimongos.herokuapp.com'
 
 const APPID = 'SmartOfficeAt418B'
 const APPKEY = 'cphjkAqedWvJm3W'
@@ -19,7 +20,7 @@ microgear.on('message', function (topic, msg) {
   console.log(topicAr[2])
   if (!topicAr[2].search("table")) {
     var msgi = msgStr.split(",")
-    axios.post(server + '/dht', {
+    axios.post(server + '/sensor', {
       sensorId: topicAr[2],
       desired: {
         temperature: {
@@ -37,6 +38,11 @@ microgear.on('message', function (topic, msg) {
       status: "enabled",
       metadata: {
         thingId: topicAr[2],
+        name: 'Temperature',
+        sensorInfo: {
+          type: 'Temp',
+          model:'DHT22'
+        },
         location: {
           address: "NECTEC ,NSTDA",
           city: "Khlong Luang",
@@ -47,7 +53,7 @@ microgear.on('message', function (topic, msg) {
         }
       }
     }).then(function (res) {
-      //console.log(res)
+      console.log(res)
     }).catch(function (error) {
       console.log(error)
     })

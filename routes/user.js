@@ -75,6 +75,7 @@ router.post('/', (req, res, next) => {
 router.put('/:id', function(req, res, next) {
   user.findByIdAndUpdate(req.params.id, req.body, function (err, user) {
     if (err) return next(err)
+    req.io.emit('update-user', 'update')
     res.json(req.body)
   })
   res.status(200)
