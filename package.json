@@ -1,7 +1,7 @@
 {
-  "name": "ProjectAPI",
+  "name": "bestboardapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "npm install",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
@@ -38,5 +38,13 @@
   },
   "engines": {
     "node": "8.11.x"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flamezaxaou10/API-Bestboard.git"
+  },
+  "bugs": {
+    "url": "https://github.com/flamezaxaou10/API-Bestboard/issues"
+  },
+  "homepage": "https://github.com/flamezaxaou10/API-Bestboard#readme"
 }
