@@ -35,7 +35,7 @@ app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }))
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*")
   res.header(
-    "Access-Control-Allow-Headers", 
+    "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
   )
   if (req.method === "OPTIONS") {
@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 
 
 io = io(server)
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   req.io = io
   next()
 })
